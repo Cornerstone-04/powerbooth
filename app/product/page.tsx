@@ -2,41 +2,12 @@ import Image from "next/image";
 import { site } from "@/lib/site";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { specs } from "../data/specs";
+import { jsonLd } from "../data/jsonLd";
 
 export const metadata = { title: `Product — ${site.name}` };
 
 export default function ProductPage() {
-  const specs = [
-    ["Toe Protection", "Steel Toe Cap"],
-    ["Upper", "Full-grain leather, reinforced stitching"],
-    ["Lining", "Breathable padded mesh"],
-    ["Outsole", "Slip & oil-resistant, shock absorption heel"],
-    ["Comfort", "Padded collar & tongue, cushioned insole"],
-    ["Colour", "Black / Grey accents"],
-    ["SKU", site.sku],
-  ];
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: site.name,
-    brand: site.company,
-    sku: site.sku,
-    image: [
-      `${site.baseUrl}/boots-front.jpeg`,
-      `${site.baseUrl}/boots-side.png`,
-    ],
-    description:
-      "Steel-toe, slip-resistant safety boots with breathable comfort lining.",
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "NGN",
-      price: "0.00",
-      availability: "https://schema.org/InStock",
-      url: `${site.baseUrl}/product`,
-    },
-  };
-
   return (
     <>
       <script
@@ -63,9 +34,9 @@ export default function ProductPage() {
 
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <Badge className="bg-brand-gold text-black">New</Badge>
-            <Badge variant="secondary">Steel Toe</Badge>
-            <Badge variant="secondary">Slip-Resistant</Badge>
+            <Badge className="bg-brand-gold text-white px-4 py-1 rounded-xl">New</Badge>
+            <Badge variant="secondary" className=" px-4 py-1 rounded-xl">Steel Toe</Badge>
+            <Badge variant="secondary" className=" px-4 py-1 rounded-xl">Slip-Resistant</Badge>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold">{site.name}</h1>
           <p className="mt-3 text-gray-600">

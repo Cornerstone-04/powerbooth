@@ -11,7 +11,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import { Menu, Phone, MessageCircle, X } from "lucide-react";
+import { Menu, Phone, MessageCircle} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NavLinks } from "./nav-links";
 import { navItems } from "@/app/data/nav-items";

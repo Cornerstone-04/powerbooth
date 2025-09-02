@@ -27,7 +27,7 @@ export default function HomePage() {
 
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
               SONCAP-certified safety boots designed for Nigerian industries.
-              Steel-toe protection that won't quit, even in the toughest
+              Steel-toe protection that won&apos;t quit, even in the toughest
               industrial environments.
             </p>
 
@@ -184,6 +184,121 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* DIRECTOR */}
+      <section className="max-w-6xl mx-auto px-4 pb-16">
+        <div className="rounded-3xl border bg-white shadow-xl overflow-hidden">
+          <div className="grid md:grid-cols-3 gap-0">
+            {/* Photo */}
+            <div className="relative md:col-span-1 bg-gray-50 flex items-center justify-center p-8">
+              <div className="relative w-48 h-48">
+                <Image
+                  src={site.director.photo || site.logo}
+                  alt={`${site.director.name} — ${site.director.title}`}
+                  fill
+                  className="rounded-2xl object-cover shadow-lg"
+                />
+              </div>
+            </div>
+
+            {/* Info */}
+            <div className="md:col-span-2 p-8 lg:p-12">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <Badge className="bg-brand-gold text-black font-semibold py-1 px-3">
+                  Leadership
+                </Badge>
+                <span className="text-sm text-gray-500">
+                  Power Booth Nigeria Limited
+                </span>
+              </div>
+
+              <h2 className="text-3xl font-bold text-coal">
+                {site.director.name}
+              </h2>
+              <p className="text-brand-coal/80 mt-1">{site.director.title}</p>
+
+              <p className="mt-5 text-gray-700 leading-relaxed">
+                {site.director.bio}
+              </p>
+
+              {/* Contact chips */}
+              <div className="mt-6 flex flex-wrap gap-3">
+                {site.director.phone && (
+                  <Button asChild variant="outline" className="rounded-full">
+                    <a href={`tel:${site.director.phone}`}>Call Director</a>
+                  </Button>
+                )}
+                {site.director.email && (
+                  <Button asChild variant="outline" className="rounded-full">
+                    <a href={`mailto:${site.director.email}`}>Email Director</a>
+                  </Button>
+                )}
+                {site.director.linkedin && (
+                  <Button asChild variant="outline" className="rounded-full">
+                    <a
+                      href={site.director.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      LinkedIn Profile
+                    </a>
+                  </Button>
+                )}
+              </div>
+
+              {/* Sub-points (credibility without hype) */}
+              <div className="mt-8 grid sm:grid-cols-3 gap-4 text-sm">
+                <div className="rounded-xl border p-4">
+                  <p className="font-semibold">Safety Focus</p>
+                  <p className="text-gray-600 mt-1">
+                    Commitment to SON/SONCAP compliance and practical PPE
+                    selection.
+                  </p>
+                </div>
+                <div className="rounded-xl border p-4">
+                  <p className="font-semibold">Customer-first</p>
+                  <p className="text-gray-600 mt-1">
+                    Supports site assessments and sizing guidance for teams.
+                  </p>
+                </div>
+                <div className="rounded-xl border p-4">
+                  <p className="font-semibold">Local Reliability</p>
+                  <p className="text-gray-600 mt-1">
+                    Lagos same-day dispatch options and nationwide delivery
+                    partners.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Person JSON-LD for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: site.director.name,
+              jobTitle: site.director.title,
+              image: site.director.photo
+                ? `${site.baseUrl}${site.director.photo}`
+                : `${site.baseUrl}${site.logo}`,
+              worksFor: {
+                "@type": "Organization",
+                name: site.company,
+                url: site.baseUrl,
+              },
+              email: site.director.email || undefined,
+              telephone: site.director.phone || undefined,
+              sameAs: site.director.linkedin
+                ? [site.director.linkedin]
+                : undefined,
+            }),
+          }}
+        />
       </section>
 
       {/* ENHANCED CTA STRIP */}
