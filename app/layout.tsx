@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "industrial safety footwear",
     "work boots Nigeria",
     "construction safety shoes",
+    "power booth",
+    "power safety",
   ],
   openGraph: {
     title: "Power Safety Boot — Nigeria's Trusted Safety Footwear",
