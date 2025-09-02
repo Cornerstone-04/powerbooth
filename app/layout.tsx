@@ -1,23 +1,30 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/shared/site-header";
 import { SiteFooter } from "@/components/shared/site-footer";
 import { site } from "@/lib/site";
+import { SiteHeader } from "@/components/shared/site-header";
 
 export const metadata: Metadata = {
-  title: `${site.name} — ${site.company}`,
+  title:
+    "Steel Toe Safety Boots Nigeria | Power Safety Boot (SONCAP Certified)",
   description:
-    "Reliable protection for the toughest environments. Steel-toe, slip-resistant safety boots.",
+    "Premium steel-toe safety boots for Nigerian worksites. Slip-resistant, durable, and comfortable. Bulk orders and nationwide delivery.",
+  keywords: [
+    "safety boots Nigeria",
+    "steel toe boots Lagos",
+    "industrial safety footwear",
+    "work boots Nigeria",
+    "construction safety shoes",
+  ],
   openGraph: {
-    title: site.name,
+    title: "Power Safety Boot — Nigeria's Trusted Safety Footwear",
     description:
-      "Steel-toe, slip-resistant safety boots for Nigerian worksites.",
+      "Protecting teams with SONCAP-certified steel-toe boots. Slip-resistant, durable, and ready for tough shifts.",
     url: site.baseUrl,
     siteName: site.company,
-    images: [
-      { url: site.logo, width: 500, height: 500 },
-      { url: "/boots-front.jpeg", width: 1200, height: 630 },
-    ],
+    images: [{ url: "/boots-front.jpg", width: 1200, height: 630 }],
+    locale: "en_NG",
+    type: "website",
   },
 };
 

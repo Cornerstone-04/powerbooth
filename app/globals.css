@@ -135,3 +135,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Buttons */
+.cta-button {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+}
+
+/* Cards */
+.feature-card {
+  @apply transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl;
+}
+
+/* Images */
+.gallery-image {
+  @apply transition-transform duration-500 hover:scale-110;
+}
