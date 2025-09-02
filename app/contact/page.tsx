@@ -30,7 +30,7 @@ export default function ContactPage() {
             We&apos;re Online Now
           </Badge>
         </div>
-        <h1 className="text-4xl lg:text-5xl font-bold text-coal mb-6">
+        <h1 className="text-4xl lg:text-5xl font-bold text-brand-coal mb-6">
           Get Your Safety Boot Quote
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -59,7 +59,13 @@ export default function ContactPage() {
               )}
               <CardContent className="p-8 text-center">
                 <div className="mb-6 flex justify-center">
-                  <Icon className="w-8 h-8 text-brand-gold" />
+                  <Icon
+                    className={
+                      method.primary
+                        ? "size-8 text-green-500"
+                        : "size-8 text-brand-gold"
+                    }
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-brand-oal mb-2">
                   {method.title}
@@ -89,7 +95,7 @@ export default function ContactPage() {
       </div>
 
       <section className="mb-16">
-        <h2 className="text-3xl font-bold text-coal mb-6">
+        <h2 className="text-3xl font-bold text-brand-coal mb-6">
           Business Information
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -103,7 +109,7 @@ export default function ContactPage() {
                 <CardContent className="p-6 flex items-start gap-4">
                   <Icon className="w-5 h-5 text-brand-gold flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-coal mb-1">
+                    <h3 className="font-semibold text-brand-coal mb-1">
                       {info.label}
                     </h3>
                     <p className="text-gray-700 mb-1">{info.value}</p>
@@ -119,7 +125,7 @@ export default function ContactPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl lg:text-3xl font-bold text-coal mb-6">
+        <h2 className="text-2xl lg:text-3xl font-bold text-brand-coal mb-6">
           Frequently Asked Questions
         </h2>
         <Accordion type="single" collapsible className="w-full">

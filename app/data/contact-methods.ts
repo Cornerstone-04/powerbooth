@@ -1,10 +1,10 @@
-// contact-methods.ts
-import { MessageCircle, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { site } from "@/lib/site";
+import { FaWhatsapp } from "react-icons/fa6";
 
 export const contactMethods = [
   {
-    icon: MessageCircle,
+    icon: FaWhatsapp,
     title: "WhatsApp (Fastest)",
     description: "Instant quotes & bulk pricing",
     action: "Chat Now",

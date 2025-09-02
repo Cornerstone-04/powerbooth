@@ -11,7 +11,8 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import { Menu, Phone, MessageCircle} from "lucide-react";
+import { Menu, Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 import { NavLinks } from "./nav-links";
 import { navItems } from "@/app/data/nav-items";
@@ -57,7 +58,7 @@ export function SiteHeader() {
                 rel="noopener noreferrer"
                 aria-label="Chat on WhatsApp to place an order"
               >
-                <MessageCircle className="mr-2 h-4 w-4" />
+                <FaWhatsapp className="mr-1 h-4 w-4 text-green-500" />
                 WhatsApp to Order
               </a>
             </Button>
@@ -121,7 +122,7 @@ export function SiteHeader() {
                       rel="noopener noreferrer"
                       aria-label="Chat on WhatsApp to place an order"
                     >
-                      <MessageCircle className="mr-2 h-5 w-5" />
+                      <FaWhatsapp className="mr-2 size-5 text-green-500" />
                       WhatsApp to Order
                     </a>
                   </Button>

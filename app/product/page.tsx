@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { specs } from "../data/specs";
 import { jsonLd } from "../data/jsonLd";
+import { FaWhatsapp } from "react-icons/fa6";
+import { FaQuestionCircle } from "react-icons/fa";
 
 export const metadata = { title: `Product — ${site.name}` };
 
@@ -34,9 +36,15 @@ export default function ProductPage() {
 
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <Badge className="bg-brand-gold text-white px-4 py-1 rounded-xl">New</Badge>
-            <Badge variant="secondary" className=" px-4 py-1 rounded-xl">Steel Toe</Badge>
-            <Badge variant="secondary" className=" px-4 py-1 rounded-xl">Slip-Resistant</Badge>
+            <Badge className="bg-brand-gold text-white px-4 py-1 rounded-xl">
+              New
+            </Badge>
+            <Badge variant="secondary" className=" px-4 py-1 rounded-xl">
+              Steel Toe
+            </Badge>
+            <Badge variant="secondary" className=" px-4 py-1 rounded-xl">
+              Slip-Resistant
+            </Badge>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold">{site.name}</h1>
           <p className="mt-3 text-gray-600">
@@ -54,13 +62,17 @@ export default function ProductPage() {
           </div>
 
           <div className="mt-8 flex gap-3">
-            <Button asChild className="rounded-full">
+            <Button asChild className="rounded-full bg-brand-coal">
               <a href={`https://wa.me/${site.whatsapp}`} target="_blank">
+                <FaWhatsapp className="size-4 mr-1 text-green-500" />
                 WhatsApp to Order
               </a>
             </Button>
             <Button asChild variant="outline" className="rounded-full">
-              <a href="/contact">Ask a Question</a>
+              <a href="/contact">
+                <FaQuestionCircle className="size-4 mr-1" />
+                Ask a Question
+              </a>
             </Button>
           </div>
 

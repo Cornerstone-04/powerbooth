@@ -3,7 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { site } from "@/lib/site";
-import { Shield, Clock, Wrench, Users } from "lucide-react";
+import { Shield, Clock, Users, Phone, Mail } from "lucide-react";
+import { FaLinkedin, FaWhatsapp } from "react-icons/fa6";
+import { features } from "./data/features";
+import { gallery } from "./data/gallery";
+import { personJsonLD } from "./data/person-jsonLD";
 
 export default function HomePage() {
   return (
@@ -13,12 +17,12 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in-left">
             <div className="flex items-center gap-2 mb-4">
-              <Badge className="bg-brand-gold text-black font-semibold">
+              <Badge className="bg-brand-gold text-white font-semibold px-3 py-1 rounded-xl">
                 SONCAP Certified
               </Badge>
             </div>
 
-            <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-coal mb-6">
+            <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-brand-coal mb-6">
               Power Safety Boot
               <span className="block text-2xl lg:text-3xl text-gray-600 font-normal mt-2">
                 Nigerian-engineered protection
@@ -34,9 +38,10 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <Button
                 asChild
-                className="rounded-full bg-brand-gold hover:bg-brand-gold/90 text-black font-semibold text-lg px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                className="rounded-full bg-brand-coal hover:bg-brand-coal/90 text-white font-semibold text-lg px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
                 <a href={`https://wa.me/${site.whatsapp}`} target="_blank">
+                  <FaWhatsapp className="size-5 text-green-500 mr-2" />
                   WhatsApp to Order
                 </a>
               </Button>
@@ -44,7 +49,7 @@ export default function HomePage() {
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full border-2 border-coal text-coal hover:bg-coal hover:text-white font-semibold text-lg px-8 py-6 transition-all duration-300"
+                className="rounded-full text-white bg-brand-gold hover:bg-brand-gold/90 hover:text-white font-semibold text-lg px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl flex justify-center items-center"
               >
                 <a href="/product">View Full Specs</a>
               </Button>
@@ -62,6 +67,7 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* hero image */}
           <div className="relative animate-fade-in-right">
             <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/20 to-transparent rounded-3xl transform rotate-3"></div>
             <Image
@@ -79,7 +85,7 @@ export default function HomePage() {
       {/* FEATURES */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-coal mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-brand-coal mb-4">
             Triple Protection System
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -89,57 +95,43 @@ export default function HomePage() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              icon: <Shield className="w-8 h-8 text-brand-gold" />,
-              title: "Maximum Durability",
-              desc: "Built for Nigerian conditions: Oil-resistant leather withstands chemical spills, extreme heat, and heavy-duty industrial use.",
-              highlight: "200J Impact Protection",
-            },
-            {
-              icon: <Clock className="w-8 h-8 text-brand-gold" />,
-              title: "All-Day Comfort",
-              desc: "12-hour shift approved: Moisture-wicking lining and shock-absorbing midsole keep your team productive all day.",
-              highlight: "Breathable Mesh Lining",
-            },
-            {
-              icon: <Wrench className="w-8 h-8 text-brand-gold" />,
-              title: "Comprehensive Safety",
-              desc: "Triple protection system: Steel toe (200J impact), slip-resistant outsole (tested on oil/water), and electrical hazard protection up to 18kV.",
-              highlight: "18kV Electrical Protection",
-            },
-          ].map((feature, index) => (
-            <Card
-              key={feature.title}
-              className="shadow-xl border-0 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl group"
-              style={{ animationDelay: `${index * 200}ms` }}
-            >
-              <CardContent className="p-8">
-                <div className="mb-4 transition-transform duration-300 group-hover:scale-110">
-                  {feature.icon}
-                </div>
-                <h3 className="font-bold text-2xl text-coal mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  {feature.desc}
-                </p>
-                <Badge
-                  variant="secondary"
-                  className="bg-brand-gold/10 text-brand-coal"
-                >
-                  {feature.highlight}
-                </Badge>
-              </CardContent>
-            </Card>
-          ))}
+          {features.map((feature, index) => {
+            const Icon = () => (
+              <feature.icon className="w-10 h-10 text-brand-gold" />
+            );
+            return (
+              <Card
+                key={feature.title}
+                className="shadow-xl border-0 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl group"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <CardContent className="p-8">
+                  <div className="mb-4 transition-transform duration-300 group-hover:scale-110">
+                    <Icon />
+                  </div>
+                  <h3 className="font-bold text-2xl text-brand-coal mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    {feature.desc}
+                  </p>
+                  <Badge
+                    variant="secondary"
+                    className="bg-brand-gold/10 text-brand-coal"
+                  >
+                    {feature.highlight}
+                  </Badge>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </section>
 
       {/* GALLERY */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-coal mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-brand-coal mb-4">
             See the Difference
           </h2>
           <p className="text-xl text-gray-600">
@@ -148,23 +140,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              img: "boots-front.jpeg",
-              title: "Front Profile",
-              desc: "Clean, professional design",
-            },
-            {
-              img: "boots-side-2.jpeg",
-              title: "Side Detail",
-              desc: "Reinforced construction",
-            },
-            {
-              img: "box-photo.jpeg",
-              title: "Professional Packaging",
-              desc: "Ready for distribution",
-            },
-          ].map(({ img, title, desc }) => (
+          {gallery.map(({ img, title, desc }) => (
             <div key={img} className="group cursor-pointer">
               <div className="relative overflow-hidden rounded-2xl shadow-xl">
                 <Image
@@ -188,24 +164,34 @@ export default function HomePage() {
 
       {/* DIRECTOR */}
       <section className="max-w-6xl mx-auto px-4 pb-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-brand-coal mb-4">
+            Meet Our Director
+          </h2>
+          <p className="text-xl text-gray-600">
+            Led by an experienced director, Power Booth Nigeria Limited is
+            committed to certified safety solutions for Nigerian industries.{" "}
+          </p>
+        </div>
         <div className="rounded-3xl border bg-white shadow-xl overflow-hidden">
           <div className="grid md:grid-cols-3 gap-0">
             {/* Photo */}
             <div className="relative md:col-span-1 bg-gray-50 flex items-center justify-center p-8">
-              <div className="relative w-48 h-48">
-                <Image
-                  src={site.director.photo || site.logo}
-                  alt={`${site.director.name} — ${site.director.title}`}
-                  fill
-                  className="rounded-2xl object-cover shadow-lg"
-                />
-              </div>
+              {/* <div className="relative w-48 h-48"> */}
+              <Image
+                src={site.director.photo || site.logo}
+                alt={`${site.director.name} — ${site.director.title}`}
+                fill
+                className="rounded-2xl object-cover shadow-lg"
+              />
+              {/* </div> */}
             </div>
 
             {/* Info */}
             <div className="md:col-span-2 p-8 lg:p-12">
               <div className="flex flex-wrap items-center gap-3 mb-4">
-                <Badge className="bg-brand-gold text-black font-semibold py-1 px-3">
+                <Badge className="bg-brand-gold text-white font-semibold px-3 py-1 rounded-xl">
+                  {" "}
                   Leadership
                 </Badge>
                 <span className="text-sm text-gray-500">
@@ -213,7 +199,7 @@ export default function HomePage() {
                 </span>
               </div>
 
-              <h2 className="text-3xl font-bold text-coal">
+              <h2 className="text-3xl font-bold text-brand-coal">
                 {site.director.name}
               </h2>
               <p className="text-brand-coal/80 mt-1">{site.director.title}</p>
@@ -224,27 +210,28 @@ export default function HomePage() {
 
               {/* Contact chips */}
               <div className="mt-6 flex flex-wrap gap-3">
-                {site.director.phone && (
-                  <Button asChild variant="outline" className="rounded-full">
-                    <a href={`tel:${site.director.phone}`}>Call Director</a>
-                  </Button>
-                )}
-                {site.director.email && (
-                  <Button asChild variant="outline" className="rounded-full">
-                    <a href={`mailto:${site.director.email}`}>Email Director</a>
-                  </Button>
-                )}
-                {site.director.linkedin && (
-                  <Button asChild variant="outline" className="rounded-full">
-                    <a
-                      href={site.director.linkedin}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      LinkedIn Profile
-                    </a>
-                  </Button>
-                )}
+                <Button asChild variant="outline" className="rounded-full">
+                  <a href={`tel:${site.director.phone}`}>
+                    {" "}
+                    <Phone className="size-4 mr-1" /> Call Director
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="rounded-full">
+                  <a href={`mailto:${site.director.email}`}>
+                    <Mail className="size-4 mr-1" />
+                    Email Director
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="rounded-full">
+                  <a
+                    href={site.director.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaLinkedin className="size-4 mr-1" />
+                    LinkedIn Profile
+                  </a>
+                </Button>
               </div>
 
               {/* Sub-points (credibility without hype) */}
@@ -277,27 +264,7 @@ export default function HomePage() {
         {/* Person JSON-LD for SEO */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: site.director.name,
-              jobTitle: site.director.title,
-              image: site.director.photo
-                ? `${site.baseUrl}${site.director.photo}`
-                : `${site.baseUrl}${site.logo}`,
-              worksFor: {
-                "@type": "Organization",
-                name: site.company,
-                url: site.baseUrl,
-              },
-              email: site.director.email || undefined,
-              telephone: site.director.phone || undefined,
-              sameAs: site.director.linkedin
-                ? [site.director.linkedin]
-                : undefined,
-            }),
-          }}
+          dangerouslySetInnerHTML={personJsonLD}
         />
       </section>
 
@@ -310,8 +277,8 @@ export default function HomePage() {
               Ready to Protect Your Team?
             </h2>
             <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
-              Join 500+ Nigerian companies who trust Power Safety Boots. Get
-              bulk pricing, fast delivery, and unmatched protection.
+              Join companies who trust Power Safety Boots. Get bulk pricing,
+              fast delivery, and unmatched protection.
             </p>
           </div>
 
@@ -319,18 +286,17 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-brand-gold text-white hover:bg-brand-gold/90 font-semibold text-xl px-12 py-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              className="rounded-full bg-white text-brand-coal hover:bg-white/90 font-semibold text-xl px-12 py-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             >
               <a href={`https://wa.me/${site.whatsapp}`} target="_blank">
-                WhatsApp for Instant Quote
+                <FaWhatsapp className="size-6 mr-1" />
+                Reach out on WhatsApp{" "}
               </a>
             </Button>
-
             <Button
               asChild
               size="lg"
-              variant="outline"
-              className="rounded-full border-2 border-brand-gold bg-white text-brand-coal hover:bg-white/90 font-semibold text-xl px-12 py-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              className="rounded-full bg-brand-gold text-white hover:bg-brand-gold/90 font-semibold text-xl px-12 py-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             >
               <a href="/contact">Other Contact Options</a>
             </Button>
