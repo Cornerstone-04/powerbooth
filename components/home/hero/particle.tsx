@@ -1,31 +1,29 @@
-import "@/styles/hero.css";
-
+"use client";
 
 export function HeroParticles() {
-  const dots = Array.from({ length: 10 });
+  const dots = Array.from({ length: 16 });
+
   return (
-    <>
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        {dots.map((_, i) => (
+    <div className="pointer-events-none absolute inset-0 z-0">
+      {dots.map((_, i) => {
+        const size = 10 + (i % 3) * 3; // 10–16px
+        return (
           <span
-            // eslint-disable-next-line react/no-array-index-key
             key={i}
-            className="absolute block rounded-full bg-brand-gold/10 blur-[1px] animate-float"
+            className="absolute block rounded-full bg-brand-gold/20 blur-[1px] animate-float"
             style={{
-              width: 8 + (i % 3) * 2,
-              height: 8 + (i % 3) * 2,
+              width: size,
+              height: size,
               left: `${(i * 9 + 5) % 95}%`,
               top: `${(i * 13 + 10) % 90}%`,
               animationDelay: `${i * 0.35}s`,
               animationDuration: `${6 + (i % 5)}s`,
+              // optional: make some dots lighter/darker
+              opacity: 0.6 - (i % 3) * 0.1,
             }}
           />
-        ))}
-      </div>
-
-      {/* <style jsx>{`
-        
-      `}</style> */}
-    </>
+        );
+      })}
+    </div>
   );
 }

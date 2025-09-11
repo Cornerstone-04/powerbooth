@@ -1,6 +1,7 @@
+/* particles */
 @keyframes float {
   0% {
-    transform: translateY(0px) translateX(0px);
+    transform: translateY(0) translateX(0);
     opacity: 0.5;
   }
   50% {
@@ -8,7 +9,7 @@
     opacity: 0.9;
   }
   100% {
-    transform: translateY(0px) translateX(0px);
+    transform: translateY(0) translateX(0);
     opacity: 0.5;
   }
 }
