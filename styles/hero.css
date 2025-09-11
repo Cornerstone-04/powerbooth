@@ -1,0 +1,22 @@
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-10px) translateX(6px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.5;
+  }
+}
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-float {
+    animation: none;
+  }
+}
