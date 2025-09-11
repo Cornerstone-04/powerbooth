@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import Link from "next/link";
 
 export function SiteFooter() {
   return (
@@ -9,7 +10,7 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {site.company}
           </span>
           <span className="hidden md:inline">•</span>
-          <span>{site.address}</span>
+          <Link href="https://maps.app.goo.gl/tD4M1sgV25x5gsiU6">{site.address}</Link>
         </div>
       </div>
     </footer>

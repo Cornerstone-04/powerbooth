@@ -13,7 +13,7 @@ export const site = {
   director: {
     name: "JONATHAN KENNETH UJUNWA", // update
     title: "Director, Power Booth Nigeria Limited",
-    photo: "/director.png", // add to /public (or keep null to fallback to logo)
+    photo: "/director.jpeg", // add to /public (or keep null to fallback to logo)
     email: "kennethjonathan81@yahoo.com", // optional
     phone: "+2347039140534", // optional
     linkedin: "https://www.linkedin.com/in/username", // optional

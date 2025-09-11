@@ -131,7 +131,7 @@ export default function ContactPage() {
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index + 1}`}>
-              <AccordionTrigger className="text-left text-base lg:text-lg font-semibold">
+              <AccordionTrigger className="text-left text-base lg:text-lg font-medium hover:no-underline">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-gray-600 leading-relaxed">
