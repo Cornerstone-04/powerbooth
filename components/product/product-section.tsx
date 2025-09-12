@@ -10,10 +10,10 @@ type Props = {
   images: { src: string; alt: string }[];
   title: string;
   description: string;
-  badges: string[]; // first badge rendered as filled
-  specs: ReadonlyArray<Spec>; // key/value grid
-  isMain?: boolean; // if true, use <h1>
-  variant?: "default" | "compact"; // compact = smaller media column
+  badges: string[];
+  specs: ReadonlyArray<Spec>;
+  isMain?: boolean;
+  variant?: "default" | "compact";
 };
 
 const fadeUp = {
@@ -30,27 +30,18 @@ export function ProductSection({
   isMain,
   variant = "default",
 }: Props) {
-  // media column sizing
   const mediaCol =
-    variant === "compact"
-      ? "md:max-w-md md:mx-auto lg:mx-0" // narrower column on desktop
-      : "";
+    variant === "compact" ? "md:max-w-md md:mx-auto lg:mx-0" : "";
 
-  // image wrapper classes (card-like + dark aware)
-  const imageCard =
-    "relative overflow-hidden rounded-2xl shadow-card bg-card border border-border";
-
-  // aspect ratio to prevent huge vertical jumps
   const aspect =
     variant === "compact" ? "aspect-[4/3]" : "aspect-[3/2] md:aspect-[4/3]";
 
   return (
+    // IMPORTANT: don't start hidden at the section level (fixes mobile “blank until scroll”)
     <motion.div
       className="grid md:grid-cols-2 gap-10 items-start"
-      initial="hidden"
-      whileInView="show"
+      initial={false}
       viewport={{ once: true, amount: 0.25 }}
-      variants={fadeUp}
     >
       {/* IMAGES */}
       <div className={`grid gap-4 ${mediaCol}`}>
@@ -59,25 +50,43 @@ export function ProductSection({
             key={img.src}
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.12 }}
             transition={{ duration: 0.45, delay: i * 0.06 }}
-            className={`${imageCard} ${aspect}`}
+            className={`relative overflow-hidden rounded-2xl shadow-card bg-card border border-border ${aspect}`}
           >
+            {/* Blurred background layer (covers the whole tile) */}
+            <Image
+              src={img.src}
+              alt=""
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              aria-hidden
+              className="absolute inset-0 object-cover blur-lg scale-110 opacity-50"
+            />
+
+            {/* Foreground product image (contain) */}
             <Image
               src={img.src}
               alt={img.alt}
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-contain"
+              className="relative z-10 object-contain"
+              priority={i === 0}
             />
-            {/* soft overlay hover */}
-            <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/5" />
+
+            {/* Soft hover overlay */}
+            <div className="absolute inset-0 z-20 opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/5" />
           </motion.div>
         ))}
       </div>
 
       {/* DETAILS */}
-      <motion.div variants={fadeUp}>
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.12 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="flex items-center gap-2 mb-2">
           {badges.map((b, i) => (
             <Badge
@@ -109,10 +118,10 @@ export function ProductSection({
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
           {specs.map(([k, v], i) => (
             <motion.div
-              key={`${k}-${i}`} // ensure uniqueness even if keys repeat
+              key={`${k}-${i}`}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.12 }}
               transition={{ duration: 0.35, delay: i * 0.03 }}
               className="rounded-xl border border-border p-4 bg-card hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
             >

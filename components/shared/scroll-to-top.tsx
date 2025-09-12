@@ -38,10 +38,10 @@ export function ScrollToTop() {
           <Button
             onClick={scrollToTop}
             size="icon"
-            className="size-12! rounded-full shadow-lg text-brand-coal dark:text-brand-gold bg-transparent hover:bg-transparent cursor-pointer backdrop-blur-sm border border-brand-coal dark:border dark:border-brand-gold"
+            className="rounded-full shadow-lg text-brand-coal dark:text-brand-gold bg-transparent hover:bg-transparent cursor-pointer backdrop-blur-sm border border-brand-coal dark:border dark:border-brand-gold"
             aria-label="Scroll to top"
           >
-            <ArrowUp className="size-6" />
+            <ArrowUp className="size-4" />
           </Button>
         </motion.div>
       )}
