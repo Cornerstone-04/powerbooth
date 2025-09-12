@@ -32,27 +32,35 @@ export default function ProductPage() {
       <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <Tabs defaultValue="steel" className="w-full">
           <div className="flex items-center justify-between gap-4 mb-6 flex-wrap">
-            <TabsList>
+            <TabsList className="w-full md:w-auto dark:text-white">
               <TabsTrigger value="steel">Power Safety Boot</TabsTrigger>
               <TabsTrigger value="pvc">PVC Safety Boot</TabsTrigger>
             </TabsList>
 
-            <div className="flex gap-2">
-              <Button asChild className="rounded-full bg-brand-coal">
+            <div className="flex flex-col md:flex-row gap-2 w-full md:w-auto">
+              <Button
+                asChild
+                className="rounded-full bg-brand-coal dark:bg-white text-white dark:text-foreground w-full md:w-fit text-lg md:text-sm"
+              >
                 <Link href={`https://wa.me/${site.whatsapp}`} target="_blank">
-                  <FaWhatsapp className="size-4 mr-1 text-green-500" />
+                  <FaWhatsapp className="size-6 mr-1 text-green-500" />
                   WhatsApp to Order
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="rounded-full">
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-full dark:text-brand-gold w-full md:w-fit text-lg md:text-sm"
+              >
                 <Link href="/contact">
-                  <FaQuestionCircle className="size-4 mr-1" />
+                  <FaQuestionCircle className="size-6 mr-1" />
                   Ask a Question
                 </Link>
               </Button>
             </div>
           </div>
 
+          {/* Steel Toe (main) */}
           <TabsContent value="steel">
             <ProductSection
               isMain
@@ -65,14 +73,16 @@ export default function ProductPage() {
               badges={["New", "Steel Toe", "Slip-Resistant"]}
               specs={steelSpecs}
             />
-            <p className="mt-4 text-sm text-gray-500 text-center">
+            <p className="mt-4 text-sm text-muted-foreground text-center">
               Sizes available on request • Bulk & corporate orders supported •
               Delivery nationwide
             </p>
           </TabsContent>
 
+          {/* PVC (compact visuals) */}
           <TabsContent value="pvc">
             <ProductSection
+              variant="compact"
               images={[
                 { src: "/pvc-boot-2.jpeg", alt: "PVC Safety Boot — full view" },
                 {
@@ -85,7 +95,7 @@ export default function ProductPage() {
               badges={["New", "PVC", "Waterproof"]}
               specs={pvcSpecs}
             />
-            <p className="mt-4 text-sm text-gray-500 text-center">
+            <p className="mt-4 text-sm text-muted-foreground text-center">
               Sizes available on request • Bulk & corporate orders supported •
               Delivery nationwide
             </p>

@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Shield, Clock, Users } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
@@ -14,8 +14,16 @@ const fadeUp = {
 
 export function CtaStrip() {
   return (
-    <section className="bg-brand-coal text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-gold/10 to-transparent" />
+    <section
+      className="
+        relative overflow-hidden
+        bg-brand-gold/10 text-brand-coal
+        dark:bg-brand-coal dark:text-white
+      "
+    >
+      {/* gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-gold/5 to-transparent dark:from-brand-gold/10" />
+
       <div className="max-w-6xl mx-auto px-4 py-20 relative z-10">
         <motion.div
           className="text-center mb-12"
@@ -27,12 +35,13 @@ export function CtaStrip() {
           <h2 className="text-3xl lg:text-5xl font-bold mb-4">
             Ready to Protect Your Team?
           </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-brand-coal/80 dark:text-white/80 mb-8 max-w-3xl mx-auto">
             Join companies who trust Power Safety Boots. Get bulk pricing, fast
             delivery, and unmatched protection.
           </p>
         </motion.div>
 
+        {/* CTA buttons */}
         <motion.div
           className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           initial="hidden"
@@ -42,21 +51,29 @@ export function CtaStrip() {
         >
           <Button
             asChild
-            className="w-fit rounded-full bg-white text-brand-coal hover:bg-white/90 font-semibold text-xl px-12 py-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            className="
+              w-full md:w-fit text-lg md:text-base rounded-full font-semibold
+              bg-brand-coal text-white hover:bg-brand-coal/90
+              dark:bg-white dark:text-brand-coal dark:hover:bg-white/90
+              transition-all duration-300 hover:scale-105 hover:shadow-2xl
+            "
           >
             <Link href={`https://wa.me/${site.whatsapp}`} target="_blank">
-              <FaWhatsapp className="size-6 mr-1" />
+              <FaWhatsapp className="size-6 mr-1 text-green-500" />
               Reach out on WhatsApp
             </Link>
           </Button>
+
           <Button
             asChild
-            className="w-fit rounded-full bg-brand-gold text-white hover:bg-brand-gold/90 font-semibold text-xl px-12 py-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            variant="outline"
+            className="w-full md:w-fit text-lg md:text-base rounded-full dark:text-brand-gold"
           >
             <Link href="/contact">Other Contact Options</Link>
           </Button>
         </motion.div>
 
+        {/* Feature icons */}
         <motion.div
           className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
           initial="hidden"

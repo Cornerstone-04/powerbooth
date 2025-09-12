@@ -16,7 +16,7 @@ export const site = {
     photo: "/director.jpeg", // add to /public (or keep null to fallback to logo)
     email: "kennethjonathan81@yahoo.com", // optional
     phone: "+2347039140534", // optional
-    linkedin: "https://www.linkedin.com/in/username", // optional
+    linkedin: "", // optional
     bio: "With over 10 years in industrial safety, John leads Power Booth’s mission to supply reliable PPE for Nigerian worksites.",
   },
 } as const;

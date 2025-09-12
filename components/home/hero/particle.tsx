@@ -1,4 +1,5 @@
 "use client";
+import "@/styles/hero.css";
 
 export function HeroParticles() {
   const dots = Array.from({ length: 16 });
@@ -10,7 +11,7 @@ export function HeroParticles() {
         return (
           <span
             key={i}
-            className="absolute block rounded-full bg-brand-gold/20 blur-[1px] animate-float"
+            className="absolute block rounded-full bg-brand-gold/20 blur-[2px] animate-float"
             style={{
               width: size,
               height: size,

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/components/shared/site-footer";
 import { site } from "@/lib/site";
 import { SiteHeader } from "@/components/shared/site-header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title:
@@ -38,9 +39,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="text-gray-900">
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+        <ThemeProvider>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </ThemeProvider>
       </body>
     </html>
   );

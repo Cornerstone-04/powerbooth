@@ -19,10 +19,10 @@ export function Gallery() {
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeUp}
       >
-        <h2 className="text-3xl lg:text-4xl font-bold text-brand-coal mb-4">
+        <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
           See the Difference
         </h2>
-        <p className="text-xl text-gray-600">
+        <p className="text-xl text-muted-foreground">
           Professional photography showing every detail
         </p>
       </motion.div>

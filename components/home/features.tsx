@@ -20,10 +20,10 @@ export function Features() {
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeUp}
       >
-        <h2 className="text-3xl lg:text-4xl font-bold text-brand-coal mb-4">
+        <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
           Triple Protection System
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
           Built for Nigerian conditions. Tested in the harshest industrial
           environments.
         </p>
@@ -34,7 +34,6 @@ export function Features() {
           const Icon = () => (
             <feature.icon className="w-10 h-10 text-brand-gold" />
           );
-
           return (
             <motion.div
               key={feature.title}
@@ -43,20 +42,20 @@ export function Features() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
             >
-              <Card className="shadow-xl border-0 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl group">
+              <Card className="bg-card border border-border shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl group">
                 <CardContent className="p-8">
                   <div className="mb-4 transition-transform duration-300 group-hover:scale-110">
                     <Icon />
                   </div>
-                  <h3 className="font-bold text-2xl text-brand-coal mb-3">
+                  <h3 className="font-bold text-2xl text-foreground mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
                     {feature.desc}
                   </p>
                   <Badge
                     variant="secondary"
-                    className="bg-brand-gold/10 text-brand-coal"
+                    className="bg-brand-gold/10 text-foreground dark:text-muted-foreground"
                   >
                     {feature.highlight}
                   </Badge>

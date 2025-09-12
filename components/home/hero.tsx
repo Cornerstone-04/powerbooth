@@ -9,6 +9,7 @@ import { site } from "@/lib/site";
 import { Shield, Clock } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { HeroParticles } from "./hero/particle";
+import "@/styles/hero.css";
 
 const fadeRight = {
   hidden: { opacity: 0, x: -20 },
@@ -21,9 +22,14 @@ const fadeLeft = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section
+      className="
+        relative overflow-hidden
+        bg-[radial-gradient(80%_60%_at_10%_0%,rgba(255,215,0,0.10),transparent_60%)]
+        dark:bg-[radial-gradient(80%_60%_at_10%_0%,rgba(255,215,0,0.06),transparent_60%)]
+      "
+    >
       <HeroParticles />
-
       <div className="max-w-6xl mx-auto px-4 py-10 md:py-20 grid lg:grid-cols-2 gap-12 items-center">
         {/* Left */}
         <motion.div
@@ -38,14 +44,14 @@ export function Hero() {
             </Badge>
           </div>
 
-          <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-brand-coal mb-6">
+          <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-foreground mb-6">
             Power Safety Boot
-            <span className="block text-2xl lg:text-3xl text-gray-600 font-normal mt-2">
+            <span className="block text-2xl lg:text-3xl text-muted-foreground font-normal mt-2">
               Nigerian-engineered protection
             </span>
           </h1>
 
-          <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
             SONCAP-certified safety boots designed for Nigerian industries.
             Steel-toe protection that won&apos;t quit, even in the toughest
             industrial environments.
@@ -54,10 +60,10 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
             <Button
               asChild
-              className="rounded-full bg-brand-coal hover:bg-brand-coal/90 text-white font-semibold text-lg px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="rounded-full bg-brand-coal hover:bg-brand-coal/90 dark:bg-white dark:text-brand-coal dark:hover:bg-white/90 text-white font-semibold text-base px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <Link href={`https://wa.me/${site.whatsapp}`} target="_blank">
-                <FaWhatsapp className="size-5 text-green-500 mr-2" />
+                <FaWhatsapp className="size-6 text-green-500 mr-2" />
                 WhatsApp to Order
               </Link>
             </Button>
@@ -65,13 +71,13 @@ export function Hero() {
             <Button
               asChild
               variant="outline"
-              className="rounded-full text-white bg-brand-gold hover:bg-brand-gold/90 hover:text-white font-semibold text-lg px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-XL flex justify-center items-center"
+              className="rounded-full text-foreground dark:text-brand-gold bg-brand-gold hover:bg-brand-gold/90 hover:text-white font-semibold text-base px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl flex justify-center items-center"
             >
               <Link href="/product">View Full Specs</Link>
             </Button>
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-gray-600">
+          <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-brand-gold" />
               <span>SKU: {site.sku}</span>
@@ -91,7 +97,7 @@ export function Hero() {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeLeft}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/20 to-transparent rounded-3xl transform rotate-3" />
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/15 to-transparent rounded-3xl transform rotate-3" />
           <motion.div
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 120, damping: 12 }}
@@ -110,5 +116,3 @@ export function Hero() {
     </section>
   );
 }
-
-/** Lightweight hero particles — CSS-only */
