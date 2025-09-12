@@ -42,7 +42,14 @@ export default function ProductPage() {
                 asChild
                 className="rounded-full bg-brand-coal dark:bg-white text-white dark:text-foreground w-full md:w-fit text-lg md:text-sm"
               >
-                <Link href={`https://wa.me/${site.whatsapp}`} target="_blank">
+                <Link
+                  href={`https://wa.me/${
+                    site.whatsapp
+                  }?text=${encodeURIComponent(
+                    "Hi! I'd like to place an order."
+                  )}`}
+                  target="_blank"
+                >
                   <FaWhatsapp className="size-6 mr-1 text-green-500" />
                   WhatsApp to Order
                 </Link>

@@ -47,22 +47,6 @@ export function SiteHeader() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-2">
           <ModeToggle />
-          {/* <Button
-            asChild
-            className="rounded-full hover:scale-105 transition-transform"
-          >
-            <Link
-              href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
-                "Hi! I'd like to place an order."
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Chat on WhatsApp to place an order"
-            >
-              <FaWhatsapp className="mr-1 h-4 w-4 text-green-500" />
-              WhatsApp to Order
-            </Link>
-          </Button> */}
         </div>
 
         {/* Mobile menu */}
@@ -81,9 +65,9 @@ export function SiteHeader() {
 
             <SheetContent
               side="right"
-              className="w-80 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] bg-brand-coal"
+              className="w-80 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] dark:bg-brand-coal"
             >
-              <div className="flex items-center gap-3 mb-6 mt-2 pl-3" />
+              <div className="flex items-center gap-3 mb-6 mt-2 pl-3"><ModeToggle/></div>
 
               {/* Primary links */}
               <nav className="space-y-1">
@@ -109,7 +93,10 @@ export function SiteHeader() {
 
               {/* Quick actions */}
               <div className="space-y-3 p-3">
-                <Button asChild className="w-full rounded-full h-12 text-base">
+                <Button
+                  asChild
+                  className="rounded-full bg-brand-coal dark:bg-white text-white dark:text-foreground w-full md:w-fit text-lg md:text-sm"
+                >
                   <Link
                     href={`https://wa.me/${
                       site.whatsapp
@@ -127,7 +114,7 @@ export function SiteHeader() {
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full rounded-full h-12 text-base"
+                  className="rounded-full dark:text-brand-gold w-full md:w-fit text-lg md:text-sm"
                 >
                   <Link
                     href={`tel:${site.phone}`}

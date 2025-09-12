@@ -190,3 +190,7 @@
 .gallery-image {
   @apply transition-transform duration-500 hover:scale-110;
 }
+
+[data-slot='sheet-content'] > button{
+  @apply dark:text-white!
+}

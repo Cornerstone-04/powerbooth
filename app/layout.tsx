@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/shared/site-footer";
 import { site } from "@/lib/site";
 import { SiteHeader } from "@/components/shared/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ScrollToTop } from "@/components/shared/scroll-to-top";
 
 export const metadata: Metadata = {
   title:
@@ -40,6 +41,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="text-gray-900">
         <ThemeProvider>
+          <ScrollToTop />
           <SiteHeader />
           {children}
           <SiteFooter />

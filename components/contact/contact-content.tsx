@@ -104,7 +104,7 @@ export default function ContactContent() {
                     className={`w-full rounded-full font-semibold ${
                       method.primary
                         ? "bg-green-600 hover:bg-green-700 text-white"
-                        : "bg-brand-gold hover:bg-brand-gold/90 text-black dark:text-white"
+                        : "bg-brand-gold hover:bg-brand-gold/90 text-white"
                     }`}
                   >
                     <Link

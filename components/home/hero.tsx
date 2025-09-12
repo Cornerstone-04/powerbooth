@@ -51,7 +51,7 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-xl text-brand-coal/80 dark:ext-muted-foreground mb-8 leading-relaxed">
             SONCAP-certified safety boots designed for Nigerian industries.
             Steel-toe protection that won&apos;t quit, even in the toughest
             industrial environments.
@@ -60,7 +60,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
             <Button
               asChild
-              className="rounded-full bg-brand-coal hover:bg-brand-coal/90 dark:bg-white dark:text-brand-coal dark:hover:bg-white/90 text-white font-semibold text-base px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="w-full md:w-fit rounded-full bg-brand-coal hover:bg-brand-coal/90 dark:bg-white dark:text-brand-coal dark:hover:bg-white/90 text-white font-semibold text-base transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <Link href={`https://wa.me/${site.whatsapp}`} target="_blank">
                 <FaWhatsapp className="size-6 text-green-500 mr-2" />
@@ -71,7 +71,7 @@ export function Hero() {
             <Button
               asChild
               variant="outline"
-              className="rounded-full text-foreground dark:text-brand-gold bg-brand-gold hover:bg-brand-gold/90 hover:text-white font-semibold text-base px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl flex justify-center items-center"
+              className="w-full md:w-fit rounded-full text-white dark:text-brand-gold bg-brand-gold hover:bg-brand-gold/90 hover:text-white font-semibold text-base transition-all duration-300 hover:scale-105 hover:shadow-xl flex justify-center items-center"
             >
               <Link href="/product">View Full Specs</Link>
             </Button>

@@ -69,7 +69,9 @@ export function DirectorSection() {
             <h3 className="text-3xl font-bold text-foreground">
               {site.director.name}
             </h3>
-            <p className="text-foreground/80 mt-1 dark:text-muted-foreground">{site.director.title}</p>
+            <p className="text-foreground/80 mt-1 dark:text-muted-foreground">
+              {site.director.title}
+            </p>
 
             <p className="mt-5 text-muted-foreground leading-relaxed ">
               {site.director.bio}
@@ -77,22 +79,34 @@ export function DirectorSection() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               {site.director.phone && (
-                <Button asChild variant="outline" className="rounded-full dark:text-brand-gold">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full md:w-fit rounded-full dark:text-brand-gold"
+                >
                   <Link href={`tel:${site.director.phone}`}>
                     <Phone className="size-4 mr-1" /> Call Director
                   </Link>
                 </Button>
               )}
               {site.director.email && (
-                <Button asChild variant="outline" className="rounded-full dark:text-brand-gold">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full md:w-fit rounded-full dark:text-brand-gold"
+                >
                   <Link href={`mailto:${site.director.email}`}>
                     <Mail className="size-4 mr-1" />
                     Email Director
                   </Link>
                 </Button>
               )}
-              {site.director.linkedin.length >0 && (
-                <Button asChild variant="outline" className="rounded-full dark:text-brand-gold">
+              {site.director.linkedin.length > 0 && (
+                <Button
+                  asChild
+                  variant="outline"
+                  className="rounded-full dark:text-brand-gold"
+                >
                   <Link
                     href={site.director.linkedin}
                     target="_blank"
