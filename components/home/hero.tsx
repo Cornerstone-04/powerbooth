@@ -51,7 +51,7 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="text-xl text-brand-coal/80 dark:ext-muted-foreground mb-8 leading-relaxed">
+          <p className="text-xl text-brand-coal/80 dark:text-white/80 mb-8 leading-relaxed">
             SONCAP-certified safety boots designed for Nigerian industries.
             Steel-toe protection that won&apos;t quit, even in the toughest
             industrial environments.
