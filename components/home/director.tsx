@@ -30,7 +30,7 @@ export function DirectorSection() {
         </h2>
         <p className="text-xl text-muted-foreground max-w-2xl">
           Led by an experienced director, Power Booth Nigeria Limited is
-          committed to certified safety solutions for Nigerian industries.
+          committed to certified safety solutions for industries worldwide.
         </p>
       </motion.div>
 
