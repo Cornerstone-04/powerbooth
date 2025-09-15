@@ -6,19 +6,19 @@ export const businessInfo = [
     icon: MapPin,
     label: "Location",
     value: site.address,
-    subtext: "Serving all of Nigeria",
+    subtext: "Showroom / pickup by appointment",
   },
   {
     icon: Clock,
     label: "Business Hours",
-    value: "Mon-Fri: 8AM-6PM",
-    subtext: "Saturday: 9AM-3PM",
+    value: "Mon–Fri: 8AM–6PM",
+    subtext: "Saturday: 9AM–3PM",
   },
   {
     icon: Truck,
     label: "Delivery",
-    value: "Same-day Lagos",
-    subtext: "Nationwide 2-3 days",
+    value: "Fast dispatch",
+    subtext: "Same-day available in select cities",
   },
   {
     icon: Users,
@@ -26,4 +26,4 @@ export const businessInfo = [
     value: "10+ pairs minimum",
     subtext: "Corporate accounts available",
   },
-];
+] as const;

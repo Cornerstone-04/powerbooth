@@ -6,11 +6,12 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { FaQuestionCircle } from "react-icons/fa";
 import { specs as steelSpecsRaw } from "../data/specs";
 import { jsonLd } from "../data/jsonLd";
-import { ProductSection } from "@/components/product/product-section";
+import { ProductSection } from "@/components/product";
+
+// ...imports stay the same
 
 export const metadata = { title: `Product — ${site.name}` };
 
-// Treat imported data as readonly [string, string][]
 const steelSpecs = steelSpecsRaw as ReadonlyArray<readonly [string, string]>;
 
 const pvcSpecs: ReadonlyArray<readonly [string, string]> = [
@@ -19,6 +20,20 @@ const pvcSpecs: ReadonlyArray<readonly [string, string]> = [
   ["Color", "Yellow"],
   ["Outsole", "Lugged, slip-resistant"],
   ["Usage", "Wet/industrial environments"],
+];
+
+const steelImages = [
+  { src: "/boots-front.jpeg", alt: "Front view" },
+  { src: "/boots-side-2.jpeg", alt: "Side view" },
+  { src: "/boots-side.png", alt: "Side view" },
+  { src: "/boots-tongue.jpeg", alt: "tongue view" },
+  { src: "/boots-sole.jpeg", alt: "Sole view" },
+  { src: "/boots-sole-2.jpeg", alt: "Sole view" },
+];
+
+const pvcImages = [
+  { src: "/pvc-boot-2.jpeg", alt: "PVC Safety Boot — full view" },
+  { src: "/pvc-boot-1.jpeg", alt: "PVC Safety Boot — marking" },
 ];
 
 export default function ProductPage() {
@@ -33,8 +48,15 @@ export default function ProductPage() {
         <Tabs defaultValue="steel" className="w-full">
           <div className="flex items-center justify-between gap-4 mb-6 flex-wrap">
             <TabsList className="w-full md:w-auto dark:text-white">
-              <TabsTrigger value="steel">Power Safety Boot</TabsTrigger>
-              <TabsTrigger value="pvc">PVC Safety Boot</TabsTrigger>
+              <TabsTrigger value="steel" className="cursor-pointer">
+                Power Safety Boot
+              </TabsTrigger>
+              <TabsTrigger value="pvc" className="cursor-pointer">
+                PVC Safety Boot
+              </TabsTrigger>
+              <TabsTrigger value="reflect" className="cursor-pointer">
+                Reflective Jacket
+              </TabsTrigger>
             </TabsList>
 
             <div className="flex flex-col md:flex-row gap-2 w-full md:w-auto">
@@ -67,35 +89,42 @@ export default function ProductPage() {
             </div>
           </div>
 
-          {/* Steel Toe (main) */}
-          <TabsContent value="steel">
+          <TabsContent value="steel" className="space-y-6">
             <ProductSection
               isMain
-              images={[
-                { src: "/boots-front.jpeg", alt: "Front view" },
-                { src: "/boots-side-2.jpeg", alt: "Side view" },
-              ]}
+              images={steelImages}
               title={site.name}
-              description="Built for Nigerian worksites: protection, traction, and comfort that lasts through long shifts."
+              description="Built for industrial worksites: protection, traction, and comfort that lasts through long shifts."
               badges={["New", "Steel Toe", "Slip-Resistant"]}
               specs={steelSpecs}
             />
             <p className="mt-4 text-sm text-muted-foreground text-center">
               Sizes available on request • Bulk & corporate orders supported •
-              Delivery nationwide
+              Fast nationwide delivery
             </p>
           </TabsContent>
 
-          {/* PVC (compact visuals) */}
           <TabsContent value="pvc">
+            <ProductSection
+              variant="compact"
+              images={pvcImages}
+              title="PVC Safety Boot"
+              description="Durable PVC safety boot for wet and industrial environments."
+              badges={["New", "PVC", "Waterproof"]}
+              specs={pvcSpecs}
+            />
+            <p className="mt-4 text-sm text-muted-foreground text-center">
+              Sizes available on request • Bulk & corporate orders supported •
+              Fast nationwide delivery
+            </p>
+          </TabsContent>
+
+          <TabsContent value="reflect">
             <ProductSection
               variant="compact"
               images={[
                 { src: "/pvc-boot-2.jpeg", alt: "PVC Safety Boot — full view" },
-                {
-                  src: "/pvc-boot-1.jpeg",
-                  alt: "PVC Safety Boot — close-up with marking",
-                },
+                { src: "/pvc-boot-1.jpeg", alt: "PVC Safety Boot — marking" },
               ]}
               title="PVC Safety Boot"
               description="Durable PVC safety boot for wet and industrial environments."
@@ -104,7 +133,7 @@ export default function ProductPage() {
             />
             <p className="mt-4 text-sm text-muted-foreground text-center">
               Sizes available on request • Bulk & corporate orders supported •
-              Delivery nationwide
+              Fast nationwide delivery
             </p>
           </TabsContent>
         </Tabs>

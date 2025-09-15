@@ -7,27 +7,25 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/shared/scroll-to-top";
 
 export const metadata: Metadata = {
-  title:
-    "Steel Toe Safety Boots Nigeria | Power Safety Boot (SONCAP Certified)",
+  title: "Power Safety Boot (SONCAP Certified) | Steel Toe Safety Boots",
   description:
-    "Premium steel-toe safety boots for Nigerian worksites. Slip-resistant, durable, and comfortable. Bulk orders and nationwide delivery.",
+    "Premium steel-toe safety boots for industrial worksites. Slip-resistant, durable, and comfortable. Bulk orders and fast delivery.",
   keywords: [
-    "safety boots Nigeria",
-    "steel toe boots Lagos",
+    "safety boots",
+    "steel toe boots",
     "industrial safety footwear",
-    "work boots Nigeria",
+    "work boots",
     "construction safety shoes",
-    "power booth",
-    "power safety",
+    "power safety boot",
   ],
   openGraph: {
-    title: "Power Safety Boot — Nigeria's Trusted Safety Footwear",
+    title: "Power Safety Boot — Trusted Safety Footwear",
     description:
-      "Protecting teams with SONCAP-certified steel-toe boots. Slip-resistant, durable, and ready for tough shifts.",
+      "SONCAP-certified steel-toe boots. Slip-resistant, durable, and ready for tough shifts.",
     url: site.baseUrl,
     siteName: site.company,
     images: [{ url: "/boots-front.jpg", width: 1200, height: 630 }],
-    locale: "en_NG",
+    locale: "en",
     type: "website",
   },
 };

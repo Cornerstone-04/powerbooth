@@ -10,8 +10,8 @@ export const gallery = [
     desc: "Reinforced construction",
   },
   {
-    img: "box-photo.jpeg",
-    title: "Professional Packaging",
-    desc: "Ready for distribution",
+    img: "boots-sole.jpeg",
+    title: "Sole View",
+    desc: "Durable outsole design providing slip-resistance and comfort.",
   },
 ];
