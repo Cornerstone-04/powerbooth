@@ -39,10 +39,12 @@ export default function RootLayout({
     <html lang="en">
       <body className="text-gray-900">
         <ThemeProvider>
-          <ScrollToTop />
-          <SiteHeader />
-          {children}
-          <SiteFooter />
+          <main className="relative">
+            <ScrollToTop />
+            <SiteHeader />
+            {children}
+            <SiteFooter />
+          </main>
         </ThemeProvider>
       </body>
     </html>

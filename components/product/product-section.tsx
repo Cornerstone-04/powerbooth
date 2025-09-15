@@ -49,6 +49,7 @@ export function ProductSection({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.12 }}
         transition={{ duration: 0.5 }}
+        id="specs"
       >
         <div className="flex items-center gap-2 mb-2">
           {badges.map((b, i) => (

@@ -4,23 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { FaWhatsapp } from "react-icons/fa6";
 import { FaQuestionCircle } from "react-icons/fa";
-import { specs as steelSpecsRaw } from "../data/specs";
 import { jsonLd } from "../data/jsonLd";
 import { ProductSection } from "@/components/product";
+import { jacketSpecs, pvcSpecs, steelSpecs } from "../data/specs";
 
 // ...imports stay the same
 
 export const metadata = { title: `Product — ${site.name}` };
-
-const steelSpecs = steelSpecsRaw as ReadonlyArray<readonly [string, string]>;
-
-const pvcSpecs: ReadonlyArray<readonly [string, string]> = [
-  ["Marking", "CE BN2532374"],
-  ["Material", "PVC"],
-  ["Color", "Yellow"],
-  ["Outsole", "Lugged, slip-resistant"],
-  ["Usage", "Wet/industrial environments"],
-];
 
 const steelImages = [
   { src: "/boots-front.jpeg", alt: "Front view" },
@@ -34,6 +24,11 @@ const steelImages = [
 const pvcImages = [
   { src: "/pvc-boot-2.jpeg", alt: "PVC Safety Boot — full view" },
   { src: "/pvc-boot-1.jpeg", alt: "PVC Safety Boot — marking" },
+];
+
+const jacketImages = [
+  { src: "/jacket-3.jpg", alt: "Reflective safety jacket — packaged view" },
+  { src: "/jacket-4.jpg", alt: "Reflective safety jacket — label & mesh" },
 ];
 
 export default function ProductPage() {
@@ -122,14 +117,11 @@ export default function ProductPage() {
           <TabsContent value="reflect">
             <ProductSection
               variant="compact"
-              images={[
-                { src: "/pvc-boot-2.jpeg", alt: "PVC Safety Boot — full view" },
-                { src: "/pvc-boot-1.jpeg", alt: "PVC Safety Boot — marking" },
-              ]}
+              images={jacketImages}
               title="PVC Safety Boot"
               description="Durable PVC safety boot for wet and industrial environments."
               badges={["New", "PVC", "Waterproof"]}
-              specs={pvcSpecs}
+              specs={jacketSpecs}
             />
             <p className="mt-4 text-sm text-muted-foreground text-center">
               Sizes available on request • Bulk & corporate orders supported •
