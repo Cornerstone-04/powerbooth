@@ -37,13 +37,13 @@ export default function ContactContent() {
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeUp}
       >
-        <div className="flex justify-center items-center gap-2 mb-4">
+        {/* <div className="flex justify-center items-center gap-2 mb-4">
           <Badge className="bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-300 px-4 py-2 inline-flex items-center">
             <CheckCircle className="w-4 h-4 mr-2" />
             We&apos;re Online Now
           </Badge>
-        </div>
-        <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+        </div> */}
+        <h1 className="text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
           Get Your Safety Boot Quote
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -169,7 +169,7 @@ export default function ContactContent() {
       </section>
 
       {/* FAQs */}
-      <section>
+      <section id="faqs">
         <motion.h2
           className="text-2xl lg:text-3xl font-bold text-foreground mb-6"
           initial="hidden"
@@ -198,7 +198,7 @@ export default function ContactContent() {
       </section>
 
       {/* Floating WhatsApp (mobile-first) */}
-      <div className="fixed bottom-5 right-5 md:hidden z-40">
+      {/* <div className="fixed bottom-5 right-5 md:hidden z-40">
         <Button
           asChild
           size="lg"
@@ -213,7 +213,7 @@ export default function ContactContent() {
             WhatsApp us
           </Link>
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 }

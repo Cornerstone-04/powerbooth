@@ -47,14 +47,14 @@ export function Hero() {
           <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-foreground mb-6">
             Power Safety Boot
             <span className="block text-2xl lg:text-3xl text-muted-foreground font-normal mt-2">
-              Nigerian-engineered protection
+              Engineered for tough worksites
             </span>
           </h1>
 
           <p className="text-xl text-brand-coal/80 dark:text-white/80 mb-8 leading-relaxed">
-            SONCAP-certified safety boots designed for Nigerian industries.
+            SONCAP-certified safety boots designed for industrial environments.
             Steel-toe protection that won&apos;t quit, even in the toughest
-            industrial environments.
+            conditions.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
@@ -84,7 +84,7 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-brand-gold" />
-              <span>Lagos Same-Day Delivery</span>
+              <span>Fast Dispatch</span>
             </div>
           </div>
         </motion.div>
@@ -104,7 +104,7 @@ export function Hero() {
           >
             <Image
               src="/boots-side.png"
-              alt="Power Safety Boot - Steel toe protection for Nigerian industries"
+              alt="Power Safety Boot - Steel toe protection"
               width={800}
               height={600}
               className="rounded-3xl shadow-2xl object-contain w-full h-auto relative z-10"

@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { ImageSlider } from "./image-slider";
 
 type Spec = readonly [string, string];
 
@@ -14,11 +14,7 @@ type Props = {
   specs: ReadonlyArray<Spec>;
   isMain?: boolean;
   variant?: "default" | "compact";
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  showThumbs?: boolean;
 };
 
 export function ProductSection({
@@ -29,55 +25,22 @@ export function ProductSection({
   specs,
   isMain,
   variant = "default",
+  showThumbs = true,
 }: Props) {
   const mediaCol =
     variant === "compact" ? "md:max-w-md md:mx-auto lg:mx-0" : "";
-
-  const aspect =
+  const aspectClass =
     variant === "compact" ? "aspect-[4/3]" : "aspect-[3/2] md:aspect-[4/3]";
 
   return (
-    // IMPORTANT: don't start hidden at the section level (fixes mobile “blank until scroll”)
-    <motion.div
-      className="grid md:grid-cols-2 gap-10 items-start"
-      initial={false}
-      viewport={{ once: true, amount: 0.25 }}
-    >
+    <div className="grid md:grid-cols-2 gap-10 items-start">
       {/* IMAGES */}
-      <div className={`grid gap-4 ${mediaCol}`}>
-        {images.map((img, i) => (
-          <motion.div
-            key={img.src}
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.12 }}
-            transition={{ duration: 0.45, delay: i * 0.06 }}
-            className={`relative overflow-hidden rounded-2xl shadow-card bg-card border border-border ${aspect}`}
-          >
-            {/* Blurred background layer (covers the whole tile) */}
-            <Image
-              src={img.src}
-              alt=""
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              aria-hidden
-              className="absolute inset-0 object-cover blur-lg scale-110 opacity-50"
-            />
-
-            {/* Foreground product image (contain) */}
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="relative z-10 object-contain"
-              priority={i === 0}
-            />
-
-            {/* Soft hover overlay */}
-            <div className="absolute inset-0 z-20 opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/5" />
-          </motion.div>
-        ))}
+      <div className={mediaCol}>
+        <ImageSlider
+          images={images}
+          aspectClass={aspectClass}
+          showThumbs={showThumbs}
+        />
       </div>
 
       {/* DETAILS */}
@@ -86,6 +49,7 @@ export function ProductSection({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.12 }}
         transition={{ duration: 0.5 }}
+        id="specs"
       >
         <div className="flex items-center gap-2 mb-2">
           {badges.map((b, i) => (
@@ -133,6 +97,6 @@ export function ProductSection({
           ))}
         </div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 }

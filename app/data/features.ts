@@ -4,19 +4,19 @@ export const features = [
   {
     icon: Shield,
     title: "Maximum Durability",
-    desc: "Built for Nigerian conditions: Oil-resistant leather withstands chemical spills, extreme heat, and heavy-duty industrial use.",
+    desc: "Oil-resistant leather withstands chemical spills, extreme heat, and heavy-duty use.",
     highlight: "200J Impact Protection",
   },
   {
     icon: Clock,
     title: "All-Day Comfort",
-    desc: "12-hour shift approved: Moisture-wicking lining and shock-absorbing midsole keep your team productive all day.",
+    desc: "24-hour shift approved: moisture-wicking lining and shock-absorbing midsole keep teams productive.",
     highlight: "Breathable Mesh Lining",
   },
   {
     icon: Wrench,
     title: "Comprehensive Safety",
-    desc: "Triple protection system: Steel toe (200J impact), slip-resistant outsole (tested on oil/water), and electrical hazard protection up to 18kV.",
+    desc: "Steel toe (200J), slip-resistant outsole (oil/wet tested), and electrical hazard protection up to 18kV.",
     highlight: "18kV Electrical Protection",
   },
-];
+] as const;

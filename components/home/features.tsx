@@ -24,7 +24,7 @@ export function Features() {
           Triple Protection System
         </h2>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Built for Nigerian conditions. Tested in the harshest industrial
+          Built for engineering conditions. Tested in the harshest industrial
           environments.
         </p>
       </motion.div>

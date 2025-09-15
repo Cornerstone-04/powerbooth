@@ -40,12 +40,20 @@ export function Gallery() {
             <div className="relative overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src={`/${img}`}
+                alt=""
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                aria-hidden
+                className="absolute inset-0 object-cover blur-lg scale-110 opacity-50"
+              />
+              <Image
+                src={`/${img}`}
                 alt={`${title} - Power Safety Boot`}
                 width={800}
                 height={600}
-                className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-80 relative z-10 object-contain object-center transition-transform duration-700 group-hover:scale-120"
               />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="z-20 absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <div className="text-white text-center">
                   <h3 className="font-bold text-xl mb-2">{title}</h3>
                   <p className="text-sm">{desc}</p>

@@ -22,7 +22,7 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full sticky top-0 z-40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border/40">
+    <header className="w-full sticky top-0 z-40 bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 border-b border-border/40">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Brand */}
         <Link
@@ -67,7 +67,9 @@ export function SiteHeader() {
               side="right"
               className="w-80 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] dark:bg-brand-coal"
             >
-              <div className="flex items-center gap-3 mb-6 mt-2 pl-3"><ModeToggle/></div>
+              <div className="flex items-center gap-3 mb-6 mt-2 pl-3">
+                <ModeToggle />
+              </div>
 
               {/* Primary links */}
               <nav className="space-y-1">
