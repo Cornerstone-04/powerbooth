@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "SONCAP-certified steel-toe boots. Slip-resistant, durable, and ready for tough shifts.",
     url: site.baseUrl,
     siteName: site.company,
-    images: [{ url: "/boots-front.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/boots-front.jpeg", width: 1200, height: 630 }],
     locale: "en",
     type: "website",
   },
