@@ -124,7 +124,7 @@ export default function ContactContent() {
       </div>
 
       {/* Business Information */}
-      <section className="mb-16">
+      <section id="business" className="mb-16">
         <motion.h2
           className="text-3xl font-bold text-foreground mb-6"
           initial="hidden"
