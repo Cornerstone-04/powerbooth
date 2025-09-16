@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
+import * as React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { site } from "@/lib/site";
 import { Mail, Phone } from "lucide-react";
-import { FaLinkedin } from "react-icons/fa6";
+import { site } from "@/lib/site";
 import { personJsonLD } from "@/app/data/person-jsonLD";
 
 const fadeUp = {
@@ -15,135 +14,182 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const qualities = [
+  {
+    t: "Safety Focus",
+    d: "Commitment to SON/SONCAP compliance and practical PPE selection.",
+  },
+  {
+    t: "Customer-first",
+    d: "Supports site assessments and sizing guidance for teams.",
+  },
+  {
+    t: "Local Reliability",
+    d: "Lagos same-day dispatch options and nationwide delivery partners.",
+  },
+];
+
+// Small helper: director initials for the avatar
+function initials(name: string) {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((p) => p[0]?.toUpperCase())
+    .join("");
+}
+
 export function DirectorSection() {
+  const monogram = initials(site.director.name);
+
   return (
-    <section className="max-w-6xl mx-auto px-4 pb-16">
+    <section className="max-w-6xl mx-auto px-4 pb-20">
+      {/* Heading */}
       <motion.div
-        className="text-center mb-12 flex flex-col items-center justify-center gap-4"
+        className="text-center mb-12 flex flex-col items-center gap-4"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeUp}
       >
-        <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
+        <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground tracking-tight">
           Meet Our Director
         </h2>
-        <p className="text-xl text-muted-foreground max-w-2xl">
+        <div className="w-16 h-1 bg-gradient-to-r from-brand-gold to-brand-gold/60 rounded-full"></div>
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
           Led by an experienced director, Power Booth Nigeria Limited is
           committed to certified safety solutions for industries worldwide.
         </p>
       </motion.div>
 
+      {/* Card */}
       <motion.div
-        className="rounded-3xl border border-border bg-card shadow-xl overflow-hidden"
+        className="mx-auto max-w-4xl rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm shadow-2xl overflow-hidden relative"
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.25 }}
         variants={fadeUp}
+        whileHover={{ y: -5 }}
+        transition={{ duration: 0.3 }}
       >
-        <div className="grid md:grid-cols-3 gap-0">
-          {/* Photo */}
-          <div className="relative md:col-span-1 bg-muted/40 flex items-center justify-center">
-            <div className="relative w-full h-full min-h-80">
-              <Image
-                src={site.director.photo || site.logo}
-                alt={`${site.director.name} — ${site.director.title}`}
-                fill
-                sizes="(min-width: 768px) 14rem, 12rem"
-                className="object-cover object-top"
-              />
-            </div>
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/5 via-transparent to-transparent pointer-events-none"></div>
+
+        {/* Top block: avatar + title */}
+        <div className="relative px-6 py-10 md:px-12 md:py-12 text-center space-y-6">
+          {/* Enhanced monogram avatar */}
+          {/* <motion.div
+            className="mx-auto h-20 w-20 rounded-3xl bg-gradient-to-br from-brand-gold/20 to-brand-gold/10 ring-2 ring-brand-gold/30 flex items-center justify-center text-brand-gold font-bold text-2xl shadow-lg"
+            whileHover={{ scale: 1.05, rotate: 5 }}
+            transition={{ duration: 0.2 }}
+          >
+            {monogram || "PB"}
+          </motion.div> */}
+
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <Badge className="bg-gradient-to-r from-brand-gold to-brand-gold/90 text-white font-semibold px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-shadow">
+              Leadership
+            </Badge>
+            <span className="text-sm text-muted-foreground font-medium">
+              Power Booth Nigeria Limited
+            </span>
           </div>
 
-          {/* Info */}
-          <div className="md:col-span-2 p-6 lg:p-12">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <Badge className="bg-brand-gold text-white font-semibold px-3 py-1 rounded-xl">
-                Leadership
-              </Badge>
-              <span className="text-sm text-muted-foreground">
-                Power Booth Nigeria Limited
-              </span>
-            </div>
-
-            <h3 className="text-3xl font-bold text-foreground">
+          <div className="space-y-2">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground tracking-tight">
               {site.director.name}
             </h3>
-            <p className="text-foreground/80 mt-1 dark:text-muted-foreground">
+            <p className="text-muted-foreground text-lg font-medium">
               {site.director.title}
             </p>
+          </div>
 
-            <p className="mt-5 text-muted-foreground leading-relaxed ">
-              {site.director.bio}
-            </p>
+          <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto text-base md:text-lg">
+            {site.director.bio}
+          </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              {site.director.phone && (
+          {/* Enhanced Actions */}
+          <motion.div
+            className="mt-8 flex flex-col items-center justify-center sm:flex-row gap-4"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {site.director.phone && (
+              <motion.div variants={fadeUp}>
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full md:w-fit rounded-full dark:text-brand-gold"
+                  className="rounded-full w-full sm:w-fit h-12 dark:text-brand-gold hover:bg-brand-gold/10 hover:border-brand-gold/50 transition-all duration-200 group"
                 >
                   <Link href={`tel:${site.director.phone}`}>
-                    <Phone className="size-4 mr-1" /> Call Director
+                    <Phone className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+                    Call Director
                   </Link>
                 </Button>
-              )}
-              {site.director.email && (
+              </motion.div>
+            )}
+            {site.director.email && (
+              <motion.div variants={fadeUp}>
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full md:w-fit rounded-full dark:text-brand-gold"
+                  className="rounded-full w-full sm:w-fit h-12 dark:text-brand-gold hover:bg-brand-gold/10 hover:border-brand-gold/50 transition-all duration-200 group"
                 >
                   <Link href={`mailto:${site.director.email}`}>
-                    <Mail className="size-4 mr-1" />
+                    <Mail className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
                     Email Director
                   </Link>
                 </Button>
-              )}
-              {site.director.linkedin.length > 0 && (
-                <Button
-                  asChild
-                  variant="outline"
-                  className="rounded-full dark:text-brand-gold"
-                >
-                  <Link
-                    href={site.director.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <FaLinkedin className="size-4 mr-1" />
-                    LinkedIn Profile
-                  </Link>
-                </Button>
-              )}
-            </div>
+              </motion.div>
+            )}
+          </motion.div>
+        </div>
 
-            <div className="mt-8 grid sm:grid-cols-3 gap-4 text-sm">
-              {[
-                {
-                  t: "Safety Focus",
-                  d: "Commitment to SON/SONCAP compliance and practical PPE selection.",
-                },
-                {
-                  t: "Customer-first",
-                  d: "Supports site assessments and sizing guidance for teams.",
-                },
-                {
-                  t: "Local Reliability",
-                  d: "Lagos same-day dispatch options and nationwide delivery partners.",
-                },
-              ].map((x) => (
-                <div
-                  key={x.t}
-                  className="rounded-xl border border-border bg-card p-4 dark:text-white"
-                >
-                  <p className="font-semibold text-foreground">{x.t}</p>
-                  <p className="text-muted-foreground mt-1">{x.d}</p>
+        {/* Enhanced Qualities */}
+        <div className="relative px-6 pb-10 md:px-12 md:pb-12">
+          <motion.div
+            className="grid sm:grid-cols-3 gap-6"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {qualities.map(({ t, d }, index) => (
+              <motion.div
+                key={t}
+                className="group h-full rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-6 hover:shadow-lg hover:border-brand-gold/30 transition-all duration-300 hover:-translate-y-1"
+                variants={fadeUp}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 rounded-lg bg-brand-gold/10 flex items-center justify-center text-brand-gold font-bold text-sm flex-shrink-0 group-hover:bg-brand-gold/20 transition-colors">
+                    {index + 1}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground dark:text-white mb-2 group-hover:text-brand-gold! transition-colors">
+                      {t}
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {d}
+                    </p>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </motion.div>
 

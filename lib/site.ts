@@ -6,6 +6,7 @@ export const site = {
   whatsapp: "2347039140534",
   email: "kennethjonathan81@yahoo.com",
   address: "29, Agarawu Street, Idumota, Lagos Island, Lagos, Nigeria",
+  addressLink: "https://maps.app.goo.gl/tD4M1sgV25x5gsiU6",
   sku: "RG 8502158",
   logo: "/logo.png",
 

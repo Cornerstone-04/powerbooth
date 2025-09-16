@@ -99,7 +99,7 @@ export function Hero() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/15 to-transparent rounded-3xl transform rotate-3" />
           <motion.div
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, rotate: 3 }}
             transition={{ type: "spring", stiffness: 120, damping: 12 }}
           >
             <Image

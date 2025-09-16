@@ -39,7 +39,7 @@ export default function ProductPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
+      <section id="specs" className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <Tabs defaultValue="steel" className="w-full">
           <div className="flex items-center justify-between gap-4 mb-6 flex-wrap">
             <TabsList className="w-full md:w-auto dark:text-white">
@@ -101,7 +101,7 @@ export default function ProductPage() {
 
           <TabsContent value="pvc">
             <ProductSection
-              variant="compact"
+              // variant="compact"
               images={pvcImages}
               title="PVC Safety Boot"
               description="Durable PVC safety boot for wet and industrial environments."
@@ -116,11 +116,11 @@ export default function ProductPage() {
 
           <TabsContent value="reflect">
             <ProductSection
-              variant="compact"
+              // variant="compact"
               images={jacketImages}
-              title="PVC Safety Boot"
-              description="Durable PVC safety boot for wet and industrial environments."
-              badges={["New", "PVC", "Waterproof"]}
+              title="Reflective Safety Jacket"
+              description="High-visibility, CE/EN471 compliant safety vest for road work, construction and warehouse environments."
+              badges={["New", "Hi-Vis", "EN471"]}
               specs={jacketSpecs}
             />
             <p className="mt-4 text-sm text-muted-foreground text-center">

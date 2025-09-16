@@ -51,7 +51,7 @@ export function Gallery() {
                 alt={`${title} - Power Safety Boot`}
                 width={800}
                 height={600}
-                className="w-full h-80 relative z-10 object-contain object-center transition-transform duration-700 group-hover:scale-120"
+                className="w-full h-80 relative z-10 object-cover object-center transition-transform duration-700 group-hover:scale-110"
               />
               <div className="z-20 absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <div className="text-white text-center">

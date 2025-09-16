@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
-import { FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -21,11 +26,13 @@ export function SiteFooter() {
                 height={28}
                 className="rounded dark:invert-100"
               />
-              <span className="font-semibold text-foreground dark:text-white">{site.company}</span>
+              <span className="font-semibold text-foreground dark:text-white">
+                {site.company}
+              </span>
             </div>
             <p className="leading-relaxed">
-              SONCAP-certified safety footwear and protective wear. Fast delivery and
-              reliable support for teams.
+              SONCAP-certified safety footwear and protective wear. Fast
+              delivery and reliable support for teams.
             </p>
           </div>
 
@@ -34,16 +41,36 @@ export function SiteFooter() {
             <div>
               <h4 className="mb-2 font-semibold text-foreground">Explore</h4>
               <ul className="space-y-2">
-                <li><Link href="/" className="hover:underline">Home</Link></li>
-                <li><Link href="/product" className="hover:underline">Products</Link></li>
-                <li><Link href="/contact" className="hover:underline">Contact</Link></li>
+                <li>
+                  <Link href="/" className="hover:underline">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/product" className="hover:underline">
+                    Products
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:underline">
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="mb-2 font-semibold text-foreground">Resources</h4>
               <ul className="space-y-2">
-                <li><Link href="/product#specs" className="hover:underline">Specs</Link></li>
-                <li><Link href="/contact#faqs" className="hover:underline">FAQs</Link></li>
+                <li>
+                  <Link href="/product#specs" className="hover:underline">
+                    Specs
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact#faqs" className="hover:underline">
+                    FAQs
+                  </Link>
+                </li>
                 <li>
                   <a
                     href={`https://wa.me/${site.whatsapp}`}
@@ -64,7 +91,7 @@ export function SiteFooter() {
             <p className="flex items-start gap-2">
               <FaMapMarkerAlt className="mt-1 opacity-80" />
               <a
-                href="https://maps.app.goo.gl/tD4M1sgV25x5gsiU6"
+                href={site.addressLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline"
@@ -107,11 +134,17 @@ export function SiteFooter() {
             © {year} {site.company}. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-xs">
-            <Link href="/contact#business" className="hover:underline">Business Info</Link>
+            <Link href="/contact#business" className="hover:underline">
+              Business Info
+            </Link>
             <span className="opacity-50">•</span>
-            <Link href="/contact#faqs" className="hover:underline">FAQ</Link>
+            <Link href="/contact#faqs" className="hover:underline">
+              FAQ
+            </Link>
             <span className="opacity-50">•</span>
-            <Link href="/product#specs" className="hover:underline">Specifications</Link>
+            <Link href="/product#specs" className="hover:underline">
+              Specifications
+            </Link>
           </div>
         </div>
       </div>
