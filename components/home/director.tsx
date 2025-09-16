@@ -51,7 +51,7 @@ function initials(name: string) {
 }
 
 export function DirectorSection() {
-  const monogram = initials(site.director.name);
+  // const monogram = initials(site.director.name);
 
   return (
     <section className="max-w-6xl mx-auto px-4 pb-20">

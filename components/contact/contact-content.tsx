@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle } from "lucide-react";
 import {
   Accordion,
   AccordionItem,
@@ -15,8 +14,6 @@ import {
 import { contactMethods } from "@/app/data/contact-methods";
 import { businessInfo } from "@/app/data/business-info";
 import { faqs } from "@/app/data/faqs";
-import { site } from "@/lib/site";
-import { FaWhatsapp } from "react-icons/fa6";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
