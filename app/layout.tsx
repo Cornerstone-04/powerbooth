@@ -5,13 +5,13 @@ import { site } from "@/lib/site";
 import { SiteHeader } from "@/components/shared/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/shared/scroll-to-top";
-import { keywords } from "@/lib/keywords";
+import { keywords as seoKeywords } from "@/lib/keywords";
 
 export const metadata: Metadata = {
   title: "Power Safety Boot (SONCAP Certified) | Steel Toe Safety Boots",
   description:
     "Premium steel-toe safety boots for industrial worksites. Slip-resistant, durable, and comfortable. Bulk orders and fast delivery.",
-  keywords: keywords,
+  keywords: [...seoKeywords],
   openGraph: {
     title: "Power Safety Boot — Trusted Safety Footwear",
     description:
