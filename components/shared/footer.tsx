@@ -8,7 +8,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-export function SiteFooter() {
+export function Footer() {
   const year = new Date().getFullYear();
 
   return (

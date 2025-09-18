@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { site } from "@/lib/site";
-import { Shield, Clock } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { HeroParticles } from "./hero/particle";
 import "@/styles/hero.css";
@@ -76,17 +75,6 @@ export function Hero() {
               <Link href="/product/boots">View Full Specs</Link>
             </Button>
           </div>
-
-          {/* <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-brand-gold" />
-              <span>SKU: {site.sku}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-brand-gold" />
-              <span>Fast Dispatch</span>
-            </div>
-          </div> */}
         </motion.div>
 
         {/* Right (image) */}

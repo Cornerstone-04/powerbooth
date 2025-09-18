@@ -1,11 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/shared/site-footer";
 import { site } from "@/lib/site";
-import { SiteHeader } from "@/components/shared/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/shared/scroll-to-top";
 import { keywords as seoKeywords } from "@/lib/keywords";
+import { Footer } from "@/components/shared/footer";
+import { Navbar } from "@/components/shared/navbar";
 
 export const metadata: Metadata = {
   title: "Power Safety Boot | Steel Toe Safety Boots",
@@ -35,9 +35,9 @@ export default function RootLayout({
         <ThemeProvider>
           <main className="relative">
             <ScrollToTop />
-            <SiteHeader />
+            <Navbar />
             {children}
-            <SiteFooter />
+            <Footer />
           </main>
         </ThemeProvider>
       </body>

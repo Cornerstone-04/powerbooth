@@ -1,14 +1,12 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
 import { ModeToggle } from "./mode-toggle";
 import { DesktopNav } from "./desktop-nav";
 import { MobileNav } from "./mobile-nav";
 
-export function SiteHeader() {
-  const pathname = usePathname();
+export function Navbar() {
 
   return (
     <header className="w-full sticky top-0 z-40 bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 border-b border-border/40">
