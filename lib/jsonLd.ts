@@ -1,19 +1,3 @@
-// export const jsonLd = {
-//   "@context": "https://schema.org",
-//   "@type": "Product",
-//   name: site.name,
-//   brand: site.company,
-//   sku: site.sku,
-//   image: [`${site.baseUrl}/boots-front.jpeg`, `${site.baseUrl}/boots-side.png`],
-//   description:
-//     "Steel-toe, slip-resistant safety boots with breathable comfort lining.",
-//   offers: {
-//     "@type": "Offer",
-//     url: `${site.baseUrl}/product`,
-//   },
-// };
-
-// lib/jsonld.ts
 type Site = {
   baseUrl: string;
   company: string;
@@ -22,6 +6,16 @@ type Site = {
   phone: string;
   address: string;
   logo: string;
+};
+
+type ProductLD = {
+  "@context": "https://schema.org";
+  "@type": "Product";
+  name: string;
+  description: string;
+  image: string[];
+  brand: { "@type": "Brand"; name: string };
+  url: string;
 };
 
 export const orgJsonLd = (site: Site) => ({
@@ -36,8 +30,6 @@ export const orgJsonLd = (site: Site) => ({
     "@type": "PostalAddress",
     streetAddress: site.address,
   },
-  // Add if you have them
-  // sameAs: ['https://www.linkedin.com/company/...']
 });
 
 export const websiteJsonLd = (site: Site) => ({
@@ -72,18 +64,13 @@ export const productJsonLd = ({
   name,
   description,
   images,
-  sku,
   brand = site.company,
-  price, // optional
-  priceCurrency, // optional (e.g. "NGN", "USD")
-  availability, // optional "https://schema.org/InStock"
 }: {
   site: Site;
   slug: string;
   name: string;
   description: string;
   images: string[];
-  sku?: string;
   brand?: string;
   price?: string | number;
   priceCurrency?: string;
@@ -92,27 +79,15 @@ export const productJsonLd = ({
   const url = `${site.baseUrl}/product/${slug}`;
   const imageUrls = images.map((i) => new URL(i, site.baseUrl).toString());
 
-  const base: Record<string, any> = {
+  const base: ProductLD = {
     "@context": "https://schema.org",
     "@type": "Product",
     name,
     description,
     image: imageUrls,
-    sku,
     brand: { "@type": "Brand", name: brand },
     url,
   };
-
-  if (price && priceCurrency) {
-    base.offers = {
-      "@type": "Offer",
-      url,
-      price: `${price}`,
-      priceCurrency,
-      availability: availability || "https://schema.org/InStock",
-      // Add priceValidUntil if you run promos
-    };
-  }
 
   return base;
 };
