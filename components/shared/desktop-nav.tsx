@@ -17,7 +17,7 @@ export function DesktopNav() {
 
   const linkCls = (href: string) =>
     cn(
-      "text-sm transition-colors hover:text-brand-gold",
+      "text-sm transition-colors dark:text-white hover:text-brand-gold!",
       pathname === href && "text-brand-gold font-medium"
     );
 
