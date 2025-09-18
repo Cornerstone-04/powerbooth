@@ -28,7 +28,7 @@ const staggerContainer = {
 const qualities = [
   {
     t: "Safety Focus",
-    d: "Commitment to SON/SONCAP compliance and practical PPE selection.",
+    d: "Commitment to certified safety standards and practical PPE selection.",
   },
   {
     t: "Customer-first",
@@ -40,18 +40,7 @@ const qualities = [
   },
 ];
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((p) => p[0]?.toUpperCase())
-    .join("");
-}
-
 export function DirectorSection() {
-  // const monogram = initials(site.director.name);
-
   return (
     <section className="max-w-6xl mx-auto px-4 pt-16 pb-20">
       {/* Heading */}

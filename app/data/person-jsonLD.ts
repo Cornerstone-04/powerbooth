@@ -16,6 +16,5 @@ export const personJsonLD = {
     },
     email: site.director.email || undefined,
     telephone: site.director.phone || undefined,
-    sameAs: site.director.linkedin ? [site.director.linkedin] : undefined,
   }),
 };

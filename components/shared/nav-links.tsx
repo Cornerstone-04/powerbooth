@@ -13,7 +13,6 @@ export const NavLinks = () => {
           key={href}
           href={href}
           className={cn(
-            // default
             "transition-colors text-muted-foreground dark:text-white/80 hover:text-brand-gold",
             // active
             pathname === href && "text-brand-gold! font-medium"

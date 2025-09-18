@@ -16,7 +16,6 @@ export const site = {
     photo: "/director.jpeg",
     email: "kennethjonathan81@yahoo.com",
     phone: "+2347039140534",
-    linkedin: "",
-    bio: "With over 10 years in industrial safety, Jonathan leads our mission to supply reliable PPE for demanding worksites.",
+    bio: "John leads our mission to provide reliable protective equipment for worksites worldwide, delivering safety and quality you can depend on.",
   },
 } as const;

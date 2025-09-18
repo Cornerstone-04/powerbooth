@@ -43,12 +43,11 @@ export function ProductSection({
         />
       </div>
 
-      {/* DETAILS */}
+      {/* DETAILS — animate on mount (no whileInView) */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.12 }}
-        transition={{ duration: 0.5 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45 }}
       >
         <div className="flex items-center gap-2 mb-2">
           {badges.map((b, i) => (
@@ -78,13 +77,13 @@ export function ProductSection({
 
         <p className="mt-3 text-muted-foreground">{description}</p>
 
+        {/* Specs — also animate on mount (not whileInView) */}
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
           {specs.map(([k, v], i) => (
             <motion.div
               key={`${k}-${i}`}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.12 }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: i * 0.03 }}
               className="rounded-xl border border-border p-4 bg-card hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
             >
