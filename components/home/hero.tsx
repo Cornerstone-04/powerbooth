@@ -73,7 +73,7 @@ export function Hero() {
               variant="outline"
               className="w-full md:w-fit rounded-full text-white dark:text-brand-gold bg-brand-gold hover:bg-brand-gold/90 hover:text-white font-semibold text-base transition-all duration-300 hover:scale-105 hover:shadow-xl flex justify-center items-center"
             >
-              <Link href="/product">View Full Specs</Link>
+              <Link href="/product/boots">View Full Specs</Link>
             </Button>
           </div>
 

@@ -17,14 +17,14 @@ export function OtherProducts() {
       title: "PVC Safety Rain Boot",
       desc: "Durable waterproof protection for wet worksites.",
       img: "/pvc-boot-2.jpeg",
-      href: "/product#pvc", // optional query + hash for tab open
+      href: "/product/pvc", // optional query + hash for tab open
       tags: ["Waterproof", "PVC"],
     },
     {
       title: "High-Visibility Reflective Jacket",
       desc: "High-visibility outerwear for enhanced on-site safety.",
       img: "/jacket-1.jpeg",
-      href: "/product#reflect",
+      href: "/product/jacket",
       tags: ["Hi-Vis", "Reflective"],
     },
   ];
@@ -71,7 +71,7 @@ export function OtherProducts() {
                 src={it.img}
                 alt={it.title}
                 fill
-                className="object-contain p-6 relative z-10"
+                className="object-cover relative z-10"
               />
             </div>
 

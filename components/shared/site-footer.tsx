@@ -31,8 +31,8 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="leading-relaxed">
-              Certified safety footwear and protective wear. Fast delivery and
-              reliable support for teams.
+              Protective footwear and gear built for worksites. Reliable
+              quality, fast delivery, and trusted by teams nationwide.
             </p>
           </div>
 
@@ -48,7 +48,7 @@ export function SiteFooter() {
                 </li>
                 <li>
                   <Link href="/product" className="hover:underline">
-                    Products
+                    All Products
                   </Link>
                 </li>
                 <li>
@@ -59,27 +59,22 @@ export function SiteFooter() {
               </ul>
             </div>
             <div>
-              <h4 className="mb-2 font-semibold text-foreground">Resources</h4>
+              <h4 className="mb-2 font-semibold text-foreground">Products</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/product#specs" className="hover:underline">
-                    Specs
+                  <Link href="/product/boots" className="hover:underline">
+                    Power Safety Boot
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact#faqs" className="hover:underline">
-                    FAQs
+                  <Link href="/product/pvc" className="hover:underline">
+                    PVC Safety Boot
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href={`https://wa.me/${site.whatsapp}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
-                  >
-                    WhatsApp Support
-                  </a>
+                  <Link href="/product/jacket" className="hover:underline">
+                    Reflective Jacket
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -134,7 +129,7 @@ export function SiteFooter() {
             © {year} {site.company}. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-xs">
-            <Link href="/contact#business" className="hover:underline">
+            <Link href="/contact" className="hover:underline">
               Business Info
             </Link>
             <span className="opacity-50">•</span>
@@ -142,8 +137,8 @@ export function SiteFooter() {
               FAQ
             </Link>
             <span className="opacity-50">•</span>
-            <Link href="/product#specs" className="hover:underline">
-              Specifications
+            <Link href="/product" className="hover:underline">
+              Products
             </Link>
           </div>
         </div>
