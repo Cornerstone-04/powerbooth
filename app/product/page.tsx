@@ -1,5 +1,17 @@
 import { site } from "@/lib/site";
 import ProductsContent from "@/components/product/product-page-content";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbJsonLd, productsCollectionJsonLd } from "@/lib/jsonLd";
+
+const items = [
+  {
+    name: "Power Safety Boot",
+    url: "/product/boots",
+    image: "/boots-front.jpeg",
+  },
+  { name: "PVC Safety Boot", url: "/product/pvc", image: "/pvc-boot-2.jpeg" },
+  { name: "Reflective Jacket", url: "/product/jacket", image: "/jacket-3.jpg" },
+];
 
 export const metadata = {
   title: `Our Products — ${site.company}`,
@@ -49,5 +61,16 @@ export const metadata = {
 };
 
 export default function ProductsPage() {
-  return <ProductsContent />;
+  const collection = productsCollectionJsonLd({ site, items });
+  const crumbs = breadcrumbJsonLd([
+    { name: "Home", url: site.baseUrl },
+    { name: "Products", url: `${site.baseUrl}/product` },
+  ]);
+  return (
+    <>
+      <JsonLd data={collection} />
+      <JsonLd data={crumbs} />
+      <ProductsContent />
+    </>
+  );
 }

@@ -1,7 +1,7 @@
 export const site = {
   name: "Power Safety Boot",
   company: "Power Safety Boot", // ← neutral company label
-  baseUrl: "https://powerbooth.vercel.app",
+  baseUrl: "https://powersafetyboots.com",
   phone: "+2347039140534",
   whatsapp: "2347039140534",
   email: "kennethjonathan81@yahoo.com",

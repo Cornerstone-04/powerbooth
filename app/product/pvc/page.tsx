@@ -3,6 +3,8 @@ import { ProductSection } from "@/components/product";
 import { pvcSpecs } from "@/app/data/specs";
 import { ProductBreadcrumbs } from "@/components/product/product-breadcrumbs";
 import { ProductPointers } from "@/components/product/product-pointers";
+import { breadcrumbJsonLd, productJsonLd } from "@/lib/jsonLd";
+import { JsonLd } from "@/components/seo/json-ld";
 
 const pvcImages = [
   { src: "/pvc-boot-2.jpeg", alt: "PVC Safety Boot — full view" },
@@ -33,24 +35,42 @@ export const metadata = {
   },
 };
 export default function PVCPage() {
+  const product = productJsonLd({
+    site,
+    slug: "pvc",
+    name: "PVC Safety Boot",
+    description:
+      "Durable waterproof PVC safety boot for wet and industrial environments. Slip-resistant and comfortable for long shifts.",
+    images: ["/pvc-boot-2.jpeg", "/pvc-boot-1.jpeg"],
+  });
+
+  const crumbs = breadcrumbJsonLd([
+    { name: "Home", url: site.baseUrl },
+    { name: "Products", url: `${site.baseUrl}/product` },
+    { name: "PVC Safety Boot", url: `${site.baseUrl}/product/pvc` },
+  ]);
   return (
-    <section className="max-w-6xl mx-auto px-4 py-16">
-      <ProductBreadcrumbs current="PVC Safety Boot" />
+    <>
+      <JsonLd data={product} />
+      <JsonLd data={crumbs} />
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <ProductBreadcrumbs current="PVC Safety Boot" />
 
-      <ProductSection
-        // variant="compact"
-        images={pvcImages}
-        title="PVC Safety Boot"
-        description="Durable PVC safety boot for wet and industrial environments."
-        badges={["New", "PVC", "Waterproof"]}
-        specs={pvcSpecs}
-      />
-      <p className="mt-4 text-sm text-muted-foreground text-center">
-        Sizes available on request • Bulk & corporate orders supported •
-        Worldwide delivery
-      </p>
+        <ProductSection
+          // variant="compact"
+          images={pvcImages}
+          title="PVC Safety Boot"
+          description="Durable PVC safety boot for wet and industrial environments."
+          badges={["New", "PVC", "Waterproof"]}
+          specs={pvcSpecs}
+        />
+        <p className="mt-4 text-sm text-muted-foreground text-center">
+          Sizes available on request • Bulk & corporate orders supported •
+          Worldwide delivery
+        </p>
 
-      <ProductPointers exclude="pvc" />
-    </section>
+        <ProductPointers exclude="pvc" />
+      </section>
+    </>
   );
 }

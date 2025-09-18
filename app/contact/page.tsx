@@ -1,5 +1,7 @@
 import { site } from "@/lib/site";
 import ContactContent from "@/components/contact/contact-content"; // <-- exact casing
+import { breadcrumbJsonLd, contactPageJsonLd } from "@/lib/jsonLd";
+import { JsonLd } from "@/components/seo/json-ld";
 
 export const metadata = {
   title: `Contact Us | ${site.company}`,
@@ -8,6 +10,17 @@ export const metadata = {
 };
 
 export default function ContactPage() {
-  // ContactContent is a Client Component; importing it here is fine.
-  return <ContactContent />;
+  const contactLd = contactPageJsonLd(site);
+  const crumbs = breadcrumbJsonLd([
+    { name: "Home", url: site.baseUrl },
+    { name: "Contact", url: `${site.baseUrl}/contact` },
+  ]);
+
+  return (
+    <>
+      <JsonLd data={contactLd} />
+      <JsonLd data={crumbs} />
+      <ContactContent />
+    </>
+  );
 }

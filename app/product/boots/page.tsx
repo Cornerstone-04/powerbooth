@@ -3,6 +3,8 @@ import { ProductSection } from "@/components/product";
 import { steelSpecs } from "@/app/data/specs";
 import { ProductBreadcrumbs } from "@/components/product/product-breadcrumbs";
 import { ProductPointers } from "@/components/product/product-pointers";
+import { breadcrumbJsonLd, productJsonLd } from "@/lib/jsonLd";
+import { JsonLd } from "@/components/seo/json-ld";
 
 const steelImages = [
   { src: "/boots-front.jpeg", alt: "Front view" },
@@ -65,22 +67,40 @@ export const metadata = {
 };
 
 export default function BootsPage() {
+  const product = productJsonLd({
+    site,
+    slug: "boots",
+    name: "Power Safety Boot",
+    description:
+      "Steel-toe, slip-resistant work boot designed for industrial worksites. Built for long-lasting comfort and durability.",
+    images: ["/boots-front.jpeg", "/boots-side.png", "/boots-sole.jpeg"],
+  });
+
+  const crumbs = breadcrumbJsonLd([
+    { name: "Home", url: site.baseUrl },
+    { name: "Products", url: `${site.baseUrl}/product` },
+    { name: "Power Safety Boot", url: `${site.baseUrl}/product/boots` },
+  ]);
   return (
-    <section className="max-w-6xl mx-auto px-4 py-16">
-      <ProductBreadcrumbs current="Power Safety Boot" />
-      <ProductSection
-        isMain
-        images={steelImages}
-        title={site.name}
-        description="Built for industrial worksites: protection, traction, and comfort that lasts through long shifts."
-        badges={["Steel Toe", "Slip-Resistant", "Durable"]}
-        specs={steelSpecs}
-      />
-      <p className="mt-4 text-sm text-muted-foreground text-center">
-        Sizes available on request • Bulk & corporate orders supported •
-        Worldwide delivery
-      </p>
-      <ProductPointers exclude="boots" />
-    </section>
+    <>
+      <JsonLd data={product} />
+      <JsonLd data={crumbs} />
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <ProductBreadcrumbs current="Power Safety Boot" />
+        <ProductSection
+          isMain
+          images={steelImages}
+          title={site.name}
+          description="Built for industrial worksites: protection, traction, and comfort that lasts through long shifts."
+          badges={["Steel Toe", "Slip-Resistant", "Durable"]}
+          specs={steelSpecs}
+        />
+        <p className="mt-4 text-sm text-muted-foreground text-center">
+          Sizes available on request • Bulk & corporate orders supported •
+          Worldwide delivery
+        </p>
+        <ProductPointers exclude="boots" />
+      </section>
+    </>
   );
 }

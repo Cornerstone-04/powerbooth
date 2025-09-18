@@ -6,6 +6,8 @@ import { ScrollToTop } from "@/components/shared/scroll-to-top";
 import { keywords as seoKeywords } from "@/lib/keywords";
 import { Footer } from "@/components/shared/footer";
 import { Navbar } from "@/components/shared/navbar";
+import { JsonLd } from "@/components/seo/json-ld";
+import { orgJsonLd, websiteJsonLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
   title: "Power Safety Boot | Steel Toe Safety Boots",
@@ -29,6 +31,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const org = orgJsonLd(site);
+  const web = websiteJsonLd(site);
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="text-gray-900" suppressHydrationWarning>
@@ -36,6 +40,8 @@ export default function RootLayout({
           <main className="relative">
             <ScrollToTop />
             <Navbar />
+            <JsonLd data={org} />
+            <JsonLd data={web} />
             {children}
             <Footer />
           </main>

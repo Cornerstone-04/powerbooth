@@ -3,6 +3,8 @@ import { ProductSection } from "@/components/product";
 import { jacketSpecs } from "@/app/data/specs";
 import { ProductPointers } from "@/components/product/product-pointers";
 import { ProductBreadcrumbs } from "@/components/product/product-breadcrumbs";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbJsonLd, productJsonLd } from "@/lib/jsonLd";
 
 const jacketImages = [
   { src: "/jacket-3.jpg", alt: "Reflective safety jacket — packaged view" },
@@ -34,21 +36,40 @@ export const metadata = {
 };
 
 export default function JacketPage() {
+  const product = productJsonLd({
+    site,
+    slug: "jacket",
+    name: "Reflective Safety Jacket",
+    description:
+      "High-visibility reflective jacket for road work, construction and warehouse environments.",
+    images: ["/jacket-3.jpg", "/jacket-4.jpg"],
+  });
+
+  const crumbs = breadcrumbJsonLd([
+    { name: "Home", url: site.baseUrl },
+    { name: "Products", url: `${site.baseUrl}/product` },
+    { name: "Reflective Safety Jacket", url: `${site.baseUrl}/product/jacket` },
+  ]);
+
   return (
-    <section className="max-w-6xl mx-auto px-4 py-16">
-      <ProductBreadcrumbs current="Reflective Jacket" />
-      <ProductSection
-        images={jacketImages}
-        title="Reflective Safety Jacket"
-        description="High-visibility safety vest for road work, construction and warehouse environments."
-        badges={["New", "Hi-Vis"]}
-        specs={jacketSpecs}
-      />
-      <p className="mt-4 text-sm text-muted-foreground text-center">
-        Sizes available on request • Bulk & corporate orders supported •
-        Worldwide delivery
-      </p>
-      <ProductPointers exclude="jacket" />
-    </section>
+    <>
+      <JsonLd data={product} />
+      <JsonLd data={crumbs} />
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <ProductBreadcrumbs current="Reflective Jacket" />
+        <ProductSection
+          images={jacketImages}
+          title="Reflective Safety Jacket"
+          description="High-visibility safety vest for road work, construction and warehouse environments."
+          badges={["New", "Hi-Vis"]}
+          specs={jacketSpecs}
+        />
+        <p className="mt-4 text-sm text-muted-foreground text-center">
+          Sizes available on request • Bulk & corporate orders supported •
+          Worldwide delivery
+        </p>
+        <ProductPointers exclude="jacket" />
+      </section>
+    </>
   );
 }
