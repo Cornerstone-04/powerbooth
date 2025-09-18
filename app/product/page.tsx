@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { Button } from "@/components/ui/button";
@@ -7,10 +9,7 @@ import { FaQuestionCircle } from "react-icons/fa";
 import { jsonLd } from "../data/jsonLd";
 import { ProductSection } from "@/components/product";
 import { jacketSpecs, pvcSpecs, steelSpecs } from "../data/specs";
-
-// ...imports stay the same
-
-export const metadata = { title: `Product — ${site.name}` };
+import { useEffect, useState } from "react";
 
 const steelImages = [
   { src: "/boots-front.jpeg", alt: "Front view" },
@@ -32,6 +31,23 @@ const jacketImages = [
 ];
 
 export default function ProductPage() {
+  const [activeTab, setActiveTab] = useState("steel");
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash === "pvc" || hash === "reflect" || hash === "steel") {
+        setActiveTab(hash);
+      }
+    };
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
   return (
     <>
       <script
@@ -40,16 +56,24 @@ export default function ProductPage() {
       />
 
       <section id="specs" className="max-w-6xl mx-auto px-4 py-8 md:py-16">
-        <Tabs defaultValue="steel" className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="flex items-center justify-between gap-4 mb-6 flex-wrap">
             <TabsList className="w-full md:w-auto dark:text-white">
-              <TabsTrigger value="steel" className="cursor-pointer">
+              <TabsTrigger
+                value="steel"
+                id="tab-steel"
+                className="cursor-pointer"
+              >
                 Power Safety Boot
               </TabsTrigger>
-              <TabsTrigger value="pvc" className="cursor-pointer">
+              <TabsTrigger value="pvc" id="tab-pvc" className="cursor-pointer">
                 PVC Safety Boot
               </TabsTrigger>
-              <TabsTrigger value="reflect" className="cursor-pointer">
+              <TabsTrigger
+                value="reflect"
+                id="tab-reflect"
+                className="cursor-pointer"
+              >
                 Reflective Jacket
               </TabsTrigger>
             </TabsList>
@@ -119,8 +143,8 @@ export default function ProductPage() {
               // variant="compact"
               images={jacketImages}
               title="Reflective Safety Jacket"
-              description="High-visibility, CE/EN471 compliant safety vest for road work, construction and warehouse environments."
-              badges={["New", "Hi-Vis", "EN471"]}
+              description="High-visibility safety vest for road work, construction and warehouse environments."
+              badges={["New", "Hi-Vis"]}
               specs={jacketSpecs}
             />
             <p className="mt-4 text-sm text-muted-foreground text-center">

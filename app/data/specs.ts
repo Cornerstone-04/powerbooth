@@ -10,7 +10,7 @@ export const steelSpecs = [
   ["Outsole", "Slip & oil-resistant, shock absorption heel"],
   ["Comfort", "Padded collar & tongue, cushioned insole"],
   ["Colour", "Black / Grey accents"],
-  ["SKU", site.sku],
+  // ["SKU", site.sku],
 ] as const satisfies ReadonlyArray<readonly [string, string]>;
 
 /** PVC Rain Jacket (waterproof shell) */
@@ -27,7 +27,6 @@ export const pvcSpecs = [
 /** Reflective Safety Jacket (Hi-Vis Vest) */
 export const jacketSpecs = [
   ["Material", "100% Polyester (mesh)"],
-  ["Standard", "CE • EN471 compliant"],
   ["Reflective Tape", "Industrial-grade, front & back"],
   ["Visibility", "Fluorescent orange"],
   ["Sizes", "M–3XL (XL shown)"],

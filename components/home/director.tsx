@@ -40,7 +40,6 @@ const qualities = [
   },
 ];
 
-// Small helper: director initials for the avatar
 function initials(name: string) {
   return name
     .split(" ")
@@ -54,7 +53,7 @@ export function DirectorSection() {
   // const monogram = initials(site.director.name);
 
   return (
-    <section className="max-w-6xl mx-auto px-4 pb-20">
+    <section className="max-w-6xl mx-auto px-4 pt-16 pb-20">
       {/* Heading */}
       <motion.div
         className="text-center mb-12 flex flex-col items-center gap-4"

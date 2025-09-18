@@ -7,7 +7,6 @@ export const keywords = [
   "construction safety shoes",
   "power safety boot",
   "power booth",
-  "soncap certified boots",
   "slip-resistant boots",
 
   // PVC Rain Boots

@@ -67,7 +67,7 @@ export function CtaStrip() {
           <Button
             asChild
             variant="outline"
-            className="w-full md:w-fit text-lg md:text-base rounded-full dark:text-brand-gold"
+            className="w-full md:w-fit text-lg md:text-base rounded-full dark:text-brand-gold transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           >
             <Link href="/contact">Other Contact Options</Link>
           </Button>
@@ -83,7 +83,7 @@ export function CtaStrip() {
         >
           <div className="flex items-center justify-center gap-3">
             <Shield className="w-6 h-6 text-brand-gold" />
-            <span>SONCAP Certified Quality</span>
+            <span>Certified Quality</span>
           </div>
           <div className="flex items-center justify-center gap-3">
             <Clock className="w-6 h-6 text-brand-gold" />

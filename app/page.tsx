@@ -3,6 +3,7 @@ import { DirectorSection } from "@/components/home/director";
 import { Features } from "@/components/home/features";
 import { Gallery } from "@/components/home/gallery";
 import { Hero } from "@/components/home/hero";
+import { OtherProducts } from "@/components/home/other-products";
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <Hero />
       <Features />
       <Gallery />
+      <OtherProducts />
       <DirectorSection />
       <CtaStrip />
     </section>

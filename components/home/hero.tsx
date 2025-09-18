@@ -40,7 +40,7 @@ export function Hero() {
         >
           <div className="flex items-center gap-2 mb-4">
             <Badge className="bg-brand-gold text-white font-semibold px-3 py-1 rounded-xl">
-              SONCAP Certified
+              Certified Quality
             </Badge>
           </div>
 
@@ -52,7 +52,7 @@ export function Hero() {
           </h1>
 
           <p className="text-xl text-brand-coal/80 dark:text-white/80 mb-8 leading-relaxed">
-            SONCAP-certified safety boots designed for industrial environments.
+            Industry-grade safety boots designed for demanding environments.
             Steel-toe protection that won&apos;t quit, even in the toughest
             conditions.
           </p>
@@ -77,7 +77,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+          {/* <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-brand-gold" />
               <span>SKU: {site.sku}</span>
@@ -86,7 +86,7 @@ export function Hero() {
               <Clock className="w-4 h-4 text-brand-gold" />
               <span>Fast Dispatch</span>
             </div>
-          </div>
+          </div> */}
         </motion.div>
 
         {/* Right (image) */}

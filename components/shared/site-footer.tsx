@@ -31,8 +31,8 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="leading-relaxed">
-              SONCAP-certified safety footwear and protective wear. Fast
-              delivery and reliable support for teams.
+              Certified safety footwear and protective wear. Fast delivery and
+              reliable support for teams.
             </p>
           </div>
 

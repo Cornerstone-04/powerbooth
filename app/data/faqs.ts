@@ -12,7 +12,7 @@ export const faqs = [
   {
     question: "What certifications do your boots have?",
     answer:
-      "Our boots are SONCAP certified and meet SON (Standards Organisation of Nigeria) requirements. They comply with EN ISO 20345:2022.",
+      "Our boots are manufactured to meet recognised international safety footwear standards. Please contact us for current test reports and documentation.",
   },
   {
     question: "How long do these boots typically last?",

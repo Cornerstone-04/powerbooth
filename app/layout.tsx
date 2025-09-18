@@ -8,14 +8,14 @@ import { ScrollToTop } from "@/components/shared/scroll-to-top";
 import { keywords as seoKeywords } from "@/lib/keywords";
 
 export const metadata: Metadata = {
-  title: "Power Safety Boot (SONCAP Certified) | Steel Toe Safety Boots",
+  title: "Power Safety Boot | Steel Toe Safety Boots",
   description:
     "Premium steel-toe safety boots for industrial worksites. Slip-resistant, durable, and comfortable. Bulk orders and fast delivery.",
   keywords: [...seoKeywords],
   openGraph: {
     title: "Power Safety Boot — Trusted Safety Footwear",
     description:
-      "SONCAP-certified steel-toe boots. Slip-resistant, durable, and ready for tough shifts.",
+      "Steel-toe boots built for demanding shifts. Slip-resistant and durable.",
     url: site.baseUrl,
     siteName: site.company,
     images: [{ url: "/boots-front.jpeg", width: 1200, height: 630 }],
@@ -30,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="text-gray-900">
+    <html lang="en" suppressHydrationWarning>
+      <body className="text-gray-900" suppressHydrationWarning>
         <ThemeProvider>
           <main className="relative">
             <ScrollToTop />
