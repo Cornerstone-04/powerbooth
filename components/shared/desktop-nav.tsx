@@ -32,7 +32,7 @@ export function DesktopNav() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent px-0 text-sm hover:text-brand-gold data-[state=open]:text-brand-gold">
+            <NavigationMenuTrigger className="bg-transparent px-0 text-sm dark:text-white hover:text-brand-gold! data-[state=open]:text-brand-gold!">
               Products
             </NavigationMenuTrigger>
             <NavigationMenuContent className="p-2">
