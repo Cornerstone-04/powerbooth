@@ -15,6 +15,10 @@ const steelImages = [
   { src: "/boots-sole-2.jpeg", alt: "Sole view" },
 ];
 
+// const hasPrice = false;
+const price = undefined;
+const currency = "NGN";
+
 export const metadata = {
   title: `Power Safety Boot — ${site.company}`,
   description:
@@ -83,7 +87,18 @@ export default function BootsPage() {
   ]);
   return (
     <>
-      <JsonLd data={product} />
+      <JsonLd
+        data={{
+          ...product,
+          offers: {
+            "@type": "Offer",
+            url: `${site.baseUrl}/product/boots`,
+            price: String(price),
+            priceCurrency: currency,
+            availability: "https://schema.org/InStock",
+          },
+        }}
+      />
       <JsonLd data={crumbs} />
       <section className="max-w-6xl mx-auto px-4 py-16">
         <ProductBreadcrumbs current="Power Safety Boot" />

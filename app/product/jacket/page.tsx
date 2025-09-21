@@ -11,6 +11,9 @@ const jacketImages = [
   { src: "/jacket-4.jpg", alt: "Reflective safety jacket — label & mesh" },
 ];
 
+const price = undefined;
+const currency = "NGN";
+
 export const metadata = {
   title: `Reflective Safety Jacket — ${site.company}`,
   description:
@@ -53,7 +56,18 @@ export default function JacketPage() {
 
   return (
     <>
-      <JsonLd data={product} />
+      <JsonLd
+        data={{
+          ...product,
+          offers: {
+            "@type": "Offer",
+            url: `${site.baseUrl}/product/boots`,
+            price: String(price),
+            priceCurrency: currency,
+            availability: "https://schema.org/InStock",
+          },
+        }}
+      />
       <JsonLd data={crumbs} />
       <section className="max-w-6xl mx-auto px-4 py-16">
         <ProductBreadcrumbs current="Reflective Jacket" />

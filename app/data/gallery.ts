@@ -14,4 +14,9 @@ export const gallery = [
     title: "Sole View",
     desc: "Slip-resistant and durable outsole.",
   },
+  {
+    img: "boots-box.jpg",
+    title: "Professional Packaging",
+    desc: "Ready for distribution",
+  },
 ];

@@ -11,6 +11,9 @@ const pvcImages = [
   { src: "/pvc-boot-1.jpeg", alt: "PVC Safety Boot — marking" },
 ];
 
+const price = undefined; // e.g. 25000
+const currency = "NGN";
+
 export const metadata = {
   title: `PVC Safety Boot — ${site.company}`,
   description:
@@ -51,7 +54,18 @@ export default function PVCPage() {
   ]);
   return (
     <>
-      <JsonLd data={product} />
+      <JsonLd
+        data={{
+          ...product,
+          offers: {
+            "@type": "Offer",
+            url: `${site.baseUrl}/product/boots`,
+            price: String(price),
+            priceCurrency: currency,
+            availability: "https://schema.org/InStock",
+          },
+        }}
+      />{" "}
       <JsonLd data={crumbs} />
       <section className="max-w-6xl mx-auto px-4 py-16">
         <ProductBreadcrumbs current="PVC Safety Boot" />

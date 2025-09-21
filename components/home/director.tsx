@@ -116,11 +116,11 @@ export function DirectorSection() {
             viewport={{ once: true }}
           >
             {site.director.phone && (
-              <motion.div variants={fadeUp}>
+              <motion.div variants={fadeUp} className="w-full md:w-fit">
                 <Button
                   asChild
                   variant="outline"
-                  className="rounded-full w-full sm:w-fit h-12 dark:text-brand-gold hover:bg-brand-gold/10 hover:border-brand-gold/50 transition-all duration-200 group"
+                  className="rounded-full w-full md:w-fit h-12 dark:text-brand-gold hover:bg-brand-gold/10 hover:border-brand-gold/50 transition-all duration-200 group"
                 >
                   <Link href={`tel:${site.director.phone}`}>
                     <Phone className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
@@ -130,11 +130,11 @@ export function DirectorSection() {
               </motion.div>
             )}
             {site.director.email && (
-              <motion.div variants={fadeUp}>
+              <motion.div variants={fadeUp} className="w-full md:w-fit">
                 <Button
                   asChild
                   variant="outline"
-                  className="rounded-full w-full sm:w-fit h-12 dark:text-brand-gold hover:bg-brand-gold/10 hover:border-brand-gold/50 transition-all duration-200 group"
+                  className="rounded-full w-full md:w-fit h-12 dark:text-brand-gold hover:bg-brand-gold/10 hover:border-brand-gold/50 transition-all duration-200 group"
                 >
                   <Link href={`mailto:${site.director.email}`}>
                     <Mail className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
