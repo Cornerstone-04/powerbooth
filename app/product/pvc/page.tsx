@@ -11,7 +11,7 @@ const pvcImages = [
   { src: "/pvc-boot-1.jpeg", alt: "PVC Safety Boot — marking" },
 ];
 
-const price = undefined; // e.g. 25000
+const price: number | undefined = undefined;
 const currency = "NGN";
 
 export const metadata = {
@@ -59,7 +59,7 @@ export default function PVCPage() {
           ...product,
           offers: {
             "@type": "Offer",
-            url: `${site.baseUrl}/product/boots`,
+            url: `${site.baseUrl}/product/pvc`,
             price: String(price),
             priceCurrency: currency,
             availability: "https://schema.org/InStock",

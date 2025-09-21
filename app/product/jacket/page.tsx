@@ -11,7 +11,7 @@ const jacketImages = [
   { src: "/jacket-4.jpg", alt: "Reflective safety jacket — label & mesh" },
 ];
 
-const price = undefined;
+const price: number | undefined = undefined;
 const currency = "NGN";
 
 export const metadata = {
@@ -61,7 +61,7 @@ export default function JacketPage() {
           ...product,
           offers: {
             "@type": "Offer",
-            url: `${site.baseUrl}/product/boots`,
+            url: `${site.baseUrl}/product/jacket`,
             price: String(price),
             priceCurrency: currency,
             availability: "https://schema.org/InStock",

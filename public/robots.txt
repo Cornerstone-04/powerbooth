@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://powersafetyboots.com
+Host: https://www.powersafetyboots.com
 
 # Sitemaps
-Sitemap: https://powersafetyboots.com/sitemap.xml
+Sitemap: https://www.powersafetyboots.com/sitemap.xml
