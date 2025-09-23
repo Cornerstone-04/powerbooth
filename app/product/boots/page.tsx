@@ -16,7 +16,7 @@ const steelImages = [
 ];
 
 // const hasPrice = false;
-const price: number | undefined = undefined;
+const price: number | undefined = 0;
 const currency = "NGN";
 
 export const metadata = {

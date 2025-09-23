@@ -11,7 +11,7 @@ const jacketImages = [
   { src: "/jacket-4.jpg", alt: "Reflective safety jacket — label & mesh" },
 ];
 
-const price: number | undefined = undefined;
+const price: number | undefined = 0;
 const currency = "NGN";
 
 export const metadata = {

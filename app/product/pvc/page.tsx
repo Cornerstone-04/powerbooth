@@ -11,7 +11,7 @@ const pvcImages = [
   { src: "/pvc-boot-1.jpeg", alt: "PVC Safety Boot — marking" },
 ];
 
-const price: number | undefined = undefined;
+const price: number | undefined = 0;
 const currency = "NGN";
 
 export const metadata = {
