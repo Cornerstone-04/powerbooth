@@ -15,7 +15,7 @@ export function Footer() {
     <footer className="w-full border-t border-border bg-muted/40 dark:bg-brand-coal/70 text-sm text-muted-foreground">
       <div className="max-w-6xl mx-auto px-4 py-10">
         {/* Top: 3 columns */}
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3 md:justify-items-center">
           {/* Brand / blurb */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
